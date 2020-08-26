@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Proyecto</string>
+    <string name="name">Name</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registro">registro</string>
+    <string name="Registrar">Button</string>
+    <string name="volver">volver</string>
 </resources>
