@@ -36,9 +36,9 @@ public class Login extends AppCompatActivity {
         String contr = edt2.getText().toString();
 
         Cursor cont = bd.rawQuery(
-                "select usuario, telefono, email from articulos where contraseña=" + contr, null);
+                "select usuario, telefono, email from USUARIO where contraseña=" + contr, null);
         Cursor usu = bd.rawQuery(
-                "select contraseña,telefono, email from articulos where usuario=" + usuario, null);
+                "select contraseña,telefono, email from USUARIO where usuario=" + usuario, null);
         if (usu.moveToFirst()) {
             if( cont.moveToFirst()){
                 Intent i = new Intent(this, Usuario.class);
