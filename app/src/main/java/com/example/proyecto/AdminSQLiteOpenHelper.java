@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     //TODAS LAS VARIABLES ESTATICAS
+    private static AdminSQLiteOpenHelper sInstance; // instancia para evitar perdidas de memoria
     private static final int DATABASE_VERSION=1;
 
     //NOMBRE DE LA BASE DE DATOS
@@ -32,17 +33,21 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String KEY_EDAD= "edad";
     private static final String KEY_TAMAÑO="tamaño";
 
-
-
-
-
-    public AdminSQLiteOpenHelper(Context context) {
-        super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
+    public static synchronized AdminSQLiteOpenHelper getInstance(Context context) {
+        if (sInstance == null) {
+            sInstance = new AdminSQLiteOpenHelper(context.getApplicationContext());
+        }
+        return sInstance;
     }
 
-    //Se llama cuando se está configurando la conexión de la base de datos.
-    // Configure las configuraciones de la base de datos para cosas como
-    // soporte de clave externa, registro de escritura anticipada, etc.
+    /* El constructor debe ser privado para evitar la instanciación directa.
+       Hacer una llamada al método estático "getInstance ()" en su lugar.
+    */
+    private AdminSQLiteOpenHelper(Context context) {
+        super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
+    }
+    
+
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
@@ -70,7 +75,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 KEY_CORREO+ "VARCHAR  "+
                 KEY_UBICACION +"VARCHAR "+
                 ")";
-        
+
         db.execSQL(CREATE_MASCOTA_TABLE);
         db.execSQL(CREATE_USUARIO_TABLE);
     }
