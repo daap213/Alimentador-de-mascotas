@@ -53,26 +53,24 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         String CREATE_MASCOTA_TABLE = "CREATE TABLE "+ MASCOTA+
                 "(" +
                 KEY_MASCOTA_ID + " INTEGER PRIMARY KEY," + // Define la primary key
-                KEY_MASCOTA_ID_FK + " INTEGER REFERENCES " + USUARIO + "," +
-                KEY_MASCOTA_NOMBRE + "VARCHAR REFERENCES " +
-                KEY_RAZA+ "VARCHAR REFERENCES "+
-                KEY_EDAD+ "INTEGER REFERENCES "+
-                KEY_TAMAÑO+ "VARCHAR REFERENCES "+
+                KEY_MASCOTA_ID_FK + " INTEGER REFERENCES " + USUARIO + "," + //llave foranea
+                KEY_EDAD + "INTEGER " +
+                KEY_MASCOTA_NOMBRE + "VARCHAR"  +
+                KEY_RAZA + "VARCHAR"  +
+                KEY_TAMAÑO +  "VARCHAR" +
                 ")";
 
         String CREATE_USUARIO_TABLE = "CREATE TABLE " + USUARIO +
                 "(" +
                 KEY_USUARIO_ID + " INTEGER PRIMARY KEY,"+
-                KEY_USUARIO_NOMBRE+ "VARCHAR REFERENCES"+
-                KEY_GENERO+ "VARCHAR REFERENCES "+
-                KEY_FN+ "DATE REFERENCES "+
-                KEY_CONTRASEÑA+ "VARCHAR REFERENCES "+
-                KEY_CORREO+ "VARCHAR REFERENCES "+
-                KEY_UBICACION +"VARCHAR REFERENCES "+
+                KEY_USUARIO_NOMBRE+ "VARCHAR "+
+                KEY_GENERO+ "VARCHAR" +
+                KEY_FN+ "DATE"+
+                KEY_CONTRASEÑA+ "VARCHAR "+
+                KEY_CORREO+ "VARCHAR  "+
+                KEY_UBICACION +"VARCHAR "+
                 ")";
-
-
-
+        
         db.execSQL(CREATE_MASCOTA_TABLE);
         db.execSQL(CREATE_USUARIO_TABLE);
     }
