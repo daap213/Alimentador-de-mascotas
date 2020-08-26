@@ -16,7 +16,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String USUARIO= "usuario";
     private static final String MASCOTA= "mascota";
 
-    //NOMBRE DE LA TABLA DE USUARIO
+    //COLUMNAS DE LA TABLA DE USUARIO
     private static final String KEY_USUARIO_ID= "id";
     private static final String KEY_USUARIO_NOMBRE= "nombre";
     private static final String KEY_GENERO= "genero";
@@ -25,7 +25,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String KEY_CORREO= "correo";
     private static final String KEY_UBICACION="ubicacion";
 
-    //NOMBRE DE LA TABLA DE MASCOTA
+    //COLUMNAS DE LA TABLA DE MASCOTA
     private static final String KEY_MASCOTA_ID= "id";
     private static final String KEY_MASCOTA_ID_FK= "usuarioId";//llave foranea
     private static final String KEY_MASCOTA_NOMBRE= "nombre";
@@ -40,19 +40,21 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         return sInstance;
     }
 
+
     /* El constructor debe ser privado para evitar la instanciación directa.
        Hacer una llamada al método estático "getInstance ()" en su lugar.
     */
     private AdminSQLiteOpenHelper(Context context) {
         super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
     }
-    
+
 
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
     }
 
+    //CREACION DE LAS TABLAS
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_MASCOTA_TABLE = "CREATE TABLE "+ MASCOTA+

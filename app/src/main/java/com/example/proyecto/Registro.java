@@ -23,8 +23,9 @@ public class Registro extends AppCompatActivity {
     }
 
     public void Registrar(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+        AdminSQLiteOpenHelper admin = AdminSQLiteOpenHelper.getInstance(this); // usar metodo singleton
+      /*  AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, //alternartiva al metodo singleton
+                "administracion", null, 1);*/
         SQLiteDatabase bd = admin.getWritableDatabase();
         String usu = edt1.getText().toString();
         String contr = edt2.getText().toString();

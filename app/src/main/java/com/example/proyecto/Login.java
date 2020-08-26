@@ -11,15 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
-    private EditText et1,et2;
+    private EditText edt1,edt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et1=(EditText)findViewById(R.id.nom);
-        et2=(EditText)findViewById(R.id.cont);
+        edt1=(EditText)findViewById(R.id.nom);
+        edt2=(EditText)findViewById(R.id.cont);
 
     }
     public void Registrar(View v) {
@@ -28,11 +28,12 @@ public class Login extends AppCompatActivity {
     }
 
     public void Ingresar(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+        AdminSQLiteOpenHelper admin = AdminSQLiteOpenHelper.getInstance(this);
+       /* AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "administracion", null, 1);*/
         SQLiteDatabase bd = admin.getReadableDatabase();
-        String usuario = et1.getText().toString();
-        String contr = et2.getText().toString();
+        String usuario = edt1.getText().toString();
+        String contr = edt2.getText().toString();
 
         Cursor cont = bd.rawQuery(
                 "select usuario, telefono, email from articulos where contraseña=" + contr, null);
