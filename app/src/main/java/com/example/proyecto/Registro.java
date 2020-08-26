@@ -2,42 +2,44 @@ package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class Registro extends AppCompatActivity {
-    private EditText edt1,edt2,edt3,edt4;
+    private EditText nombre,contra,correo,ubicacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        edt1=(EditText)findViewById(R.id.edt1);
-        edt2=(EditText)findViewById(R.id.edt2);
-        edt3=(EditText)findViewById(R.id.edt2);
-        edt4=(EditText)findViewById(R.id.edt2);
+        nombre=(EditText)findViewById(R.id.nombre);
+        contra=(EditText)findViewById(R.id.contra);
+        correo=(EditText)findViewById(R.id.correo);
+        ubicacion=(EditText)findViewById(R.id.ubicacion);
 
     }
 
     public void Registrar(View v) {
         AdminSQLiteOpenHelper admin = AdminSQLiteOpenHelper.getInstance(this); // usar metodo singleton
-      /*  AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, //alternartiva al metodo singleton
+      /*AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, //alternartiva al metodo singleton
                 "administracion", null, 1);*/
         SQLiteDatabase bd = admin.getWritableDatabase();
-        String usu = edt1.getText().toString();
-        String contr = edt2.getText().toString();
-        String telf = edt1.getText().toString();
-        String mail = edt2.getText().toString();
+        String usu = nombre.getText().toString();
+        String contr = contra.getText().toString();
+        String mail = correo.getText().toString();
+        String ubicac = ubicacion.getText().toString();
 
-        bd.execSQL("insert into articulos (usuario,contraseña,telefono,email) values ("+usu+",'"+contr+"',"+telf+","+mail+")");
+        bd.execSQL("insert into USUARIO (usuario,contraseña,telefono,email) values ("+usu+",'"+contr+"',"+mail+","+ubicac+")");
         bd.close();
-        edt1.setText("");
-        edt2.setText("");
-        edt3.setText("");
-        edt4.setText("");
+        nombre.setText("");
+        contra.setText("");
+        correo.setText("");
+        ubicacion.setText("");
         Toast.makeText(this, "Se Creo un Nuevo Usuario",
                 Toast.LENGTH_SHORT).show();
     }

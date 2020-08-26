@@ -17,11 +17,10 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         edt1=(EditText)findViewById(R.id.nom);
         edt2=(EditText)findViewById(R.id.cont);
-
     }
+
     public void Registrar(View v) {
         Intent i = new Intent(this, Registro.class);
         startActivity(i);
