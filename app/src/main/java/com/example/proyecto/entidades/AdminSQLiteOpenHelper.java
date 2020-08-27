@@ -40,6 +40,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String KEY_EDAD= "edad";
     private static final String KEY_TAMAÑO="tamaño";
 
+   //METODO PARA OBTENER LA INSTANCIA
     public static synchronized AdminSQLiteOpenHelper getInstance(Context context) {
         if (sInstance == null) {
             sInstance = new AdminSQLiteOpenHelper(context.getApplicationContext());
@@ -53,7 +54,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private AdminSQLiteOpenHelper(Context context) {
         super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
     }
-
 
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
@@ -96,6 +96,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
+
     // METODO QUE AGREGA UNA MASCOTA A LA BASE DE DATOS
     public void agregarMascota(Mascota mascota) {
         // Crear y/o abrir la base de datos para la escritura
