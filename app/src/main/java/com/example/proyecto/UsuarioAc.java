@@ -28,6 +28,7 @@ public class UsuarioAc extends AppCompatActivity {
        admin =new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
 
        //please hacer q se vea el nombre d usuario de la bienvenida
+        // Y con la obtencion del usuario q aparece alli validarpara eliminar o modificar datos
        bienvenida= (TextView) findViewById(R.id.mensajeBienvenida);
        bienvenida.setText("Bienvenid@");
        ////////////////////////////////////////////////

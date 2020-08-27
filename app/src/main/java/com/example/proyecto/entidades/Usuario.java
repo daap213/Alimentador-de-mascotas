@@ -78,4 +78,17 @@ public class Usuario implements Serializable {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", genero='" + genero + '\'' +
+                '}';
+    }
 }

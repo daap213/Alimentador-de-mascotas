@@ -9,9 +9,9 @@
     android:paddingLeft="64dp"
     android:paddingRight="64dp"
     android:paddingTop="16dp"
-    tools:context=".ConsultarListaListView">
+    tools:context=".ConsultarListaMascotas">
 <ListView
-        android:id="@+id/ListViewUsuarios"
+        android:id="@+id/listViewPersonas"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

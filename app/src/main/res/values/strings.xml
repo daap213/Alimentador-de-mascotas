@@ -24,4 +24,9 @@
     <string name="raza">Raza</string>
     <string name="tama_o">tamaño</string>
     <string name="a_adir">añadir</string>
+    <string name="textview">TextView</string>
+    <string name="telefonoo">telefonoo</string>
+    <string name="ubicacionn">ubicacionn</string>
+    <string name="nombreuser">nombreuser</string>
+    <string name="iduser">iduser</string>
 </resources>
