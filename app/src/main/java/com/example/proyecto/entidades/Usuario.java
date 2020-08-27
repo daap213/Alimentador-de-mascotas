@@ -13,7 +13,6 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-
     public Usuario(Integer id, String nombre, String correo, String ubicacion, String telefono, String contraseña, String genero) {
         this.id = id;
         this.nombre = nombre;
@@ -70,5 +69,13 @@ public class Usuario implements Serializable {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }
