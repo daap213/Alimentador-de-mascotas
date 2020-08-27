@@ -1,17 +1,23 @@
 package com.example.proyecto.entidades;
+import java.io.Serializable;
+public class Usuario implements Serializable {
 
-public class Usuario {
     private Integer id;
     private String nombre;
     private String correo;
     private String ubicacion;
     private String telefono;
+    private String contraseña;
+
+    public Usuario() {
+    }
 
 
-    public Usuario(Integer id, String nombre, String correo, String ubicacion, String telefono) {
+    public Usuario(Integer id, String nombre, String correo, String ubicacion, String telefono, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
+        this.contraseña= contraseña;
         this.ubicacion = ubicacion;
         this.telefono = telefono;
     }
@@ -54,5 +60,13 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }

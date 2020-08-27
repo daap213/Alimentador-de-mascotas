@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Usuario extends AppCompatActivity {
+public class UsuarioAc extends AppCompatActivity {
 
     public String nombre;
+    public String contraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

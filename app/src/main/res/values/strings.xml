@@ -5,9 +5,10 @@
     <string name="registro">registro</string>
     <string name="Registrar">Button</string>
     <string name="volver">volver</string>
-    <string name="comience">Comience</string>
+    <string name="Comenzar">Comience</string>
     <string name="contrase_a">Contraseña</string>
     <string name="nombre">Nombre</string>
     <string name="ubicacion">Ubicacion</string>
     <string name="correo">Correo</string>
+    <string name="comience">comience</string>
 </resources>

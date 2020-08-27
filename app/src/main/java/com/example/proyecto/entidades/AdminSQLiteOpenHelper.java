@@ -1,13 +1,18 @@
 package com.example.proyecto.entidades;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.util.Log;
 
-import com.example.proyecto.Usuario;
+import com.example.proyecto.UsuarioAc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -55,6 +60,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
@@ -125,18 +131,19 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         bd.beginTransaction();
         try {
             ContentValues values = new ContentValues();
-            values.put(KEY_USUARIO_ID, usuario.nombre);
+            values.put(KEY_USUARIO_ID, usuario.getId());
+            values.put(KEY_USUARIO_NOMBRE, usuario.getNombre());
 
             // Primero intenta actualizar el usuario en caso de que el usuario ya exista en la base de datos
             // Esto asume que los nombres de usuario son únicos
-            int rows = bd.update(USUARIO, values, KEY_USUARIO_NOMBRE + "= ?", new String[]{usuario.nombre});
+            int rows = bd.update(USUARIO, values, KEY_USUARIO_NOMBRE + "= ?", new String[]{usuario.getNombre()});
 
             // Comprueba si la actualización se realizó correctamente
             if (rows == 1) {
                 //Obtener la clave principal del usuario que acabamos de actualizar
                 String usersSelectQuery = String.format("SELECT %s FROM %s WHERE %s = ?",
                         KEY_USUARIO_ID, USUARIO, KEY_USUARIO_NOMBRE);
-                Cursor cursor = bd.rawQuery(usersSelectQuery, new String[]{String.valueOf(usuario.nombre)});
+                Cursor cursor = bd.rawQuery(usersSelectQuery, new String[]{String.valueOf(usuario.getNombre())});
                 try {
                     if (cursor.moveToFirst()) {
                         usuarioId = cursor.getInt(0);
@@ -160,7 +167,54 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         return usuarioId;
     }
 
+    //ALTERNATIVA A CONSULTAR REGISTROS NO SE SI FUNCIONE
+    public List<Usuario> getAllUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
 
+        String USUARIO_SELECT_QUERY =
+                String.format("SELECT * FROM %s LEFT OUTER JOIN %s ON %s.%s = %s.%s",
+                        MASCOTA,
+                        USUARIO,
+                        MASCOTA, KEY_MASCOTA_ID_FK,
+                        USUARIO, KEY_USUARIO_NOMBRE,
+                        USUARIO, KEY_CONTRASEÑA);
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(USUARIO_SELECT_QUERY, null);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Usuario newUser = new Usuario();
+                    newUser.setNombre(cursor.getString(cursor.getColumnIndex(KEY_USUARIO_NOMBRE)))  ;
+                    newUser.setContraseña(cursor.getString(cursor.getColumnIndex(KEY_CONTRASEÑA)));
+                    usuarios.add(newUser);
+                } while(cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "Error mientras intentaba obtener dato del usuario");
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return usuarios;
+    }
+
+    //ELIMINAR REGISTROS
+    public void deleteAllPostsAndUsers() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            // Order of deletions is important when foreign key relationships exist.
+            db.delete(MASCOTA, null, null);
+            db.delete(USUARIO, null, null);
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.d(TAG, "Error mientras intetaba eliminar todo el registro del usuario");
+        } finally {
+            db.endTransaction();
+        }
+    }
 
 
 

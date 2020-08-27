@@ -1,37 +1,51 @@
 package com.example.proyecto.entidades;
 
-public class Mascota {
-    public com.example.proyecto.Usuario usuario;
-    public String nombre;
-    public String raza;
-    public int edad;
-    public String tamaño;
+import com.example.proyecto.UsuarioAc;
+
+import java.io.Serializable;
+
+public class Mascota implements Serializable {
+    private Integer idUsuario;
+    private Integer idMascota;
+    private String nombreMascota;
+    private String raza;
+    private Integer edad;
+    private String tamaño;
 
     public Mascota() {
     }
 
-    public Mascota(Usuario usuario, String nombre, String raza, int edad, String tamaño) {
-        this.usuario = usuario;
-        this.nombre = nombre;
+    public Mascota(Integer idUsuario, Integer idMascota, String nombreMascota, String raza, Integer edad, String tamaño) {
+        this.idUsuario = idUsuario;
+        this.idMascota = idMascota;
+        this.nombreMascota = nombreMascota;
         this.raza = raza;
         this.edad = edad;
         this.tamaño = tamaño;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getIdMascota() {
+        return idMascota;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIdMascota(Integer idMascota) {
+        this.idMascota = idMascota;
+    }
+
+    public String getNombreMascota() {
+        return nombreMascota;
+    }
+
+    public void setNombreMascota(String nombreMascota) {
+        this.nombreMascota = nombreMascota;
     }
 
     public String getRaza() {
@@ -42,11 +56,11 @@ public class Mascota {
         this.raza = raza;
     }
 
-    public int getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
@@ -57,15 +71,5 @@ public class Mascota {
     public void setTamaño(String tamaño) {
         this.tamaño = tamaño;
     }
-
-    @Override
-    public String toString() {
-        return "Macota{" +
-                "usuario=" + usuario +
-                ", nombre='" + nombre + '\'' +
-                ", raza='" + raza + '\'' +
-                ", edad=" + edad +
-                ", tamaño='" + tamaño + '\'' +
-                '}';
-    }
 }
+
