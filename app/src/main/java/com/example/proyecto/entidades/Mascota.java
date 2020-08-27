@@ -1,16 +1,16 @@
-package com.example.proyecto;
+package com.example.proyecto.entidades;
 
-public class Macota {
-    public Usuario usuario;
+public class Mascota {
+    public com.example.proyecto.Usuario usuario;
     public String nombre;
     public String raza;
     public int edad;
     public String tamaño;
 
-    public Macota() {
+    public Mascota() {
     }
 
-    public Macota(Usuario usuario, String nombre, String raza, int edad, String tamaño) {
+    public Mascota(Usuario usuario, String nombre, String raza, int edad, String tamaño) {
         this.usuario = usuario;
         this.nombre = nombre;
         this.raza = raza;

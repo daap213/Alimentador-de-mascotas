@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
+
 public class Login extends AppCompatActivity {
     private EditText edt1,edt2;
 

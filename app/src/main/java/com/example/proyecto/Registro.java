@@ -3,12 +3,15 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.proyecto.entidades.*;
+
+import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
 
 public class Registro extends AppCompatActivity {
     private EditText nombre,contra,correo,ubicacion;
@@ -34,15 +37,18 @@ public class Registro extends AppCompatActivity {
         String mail = correo.getText().toString();
         String ubicac = ubicacion.getText().toString();
 
-        bd.execSQL("insert into USUARIO (usuario,contraseña,telefono,email) values ("+usu+",'"+contr+"',"+mail+","+ubicac+")");
+        bd.execSQL("insert into USUARIO (usuario,contraseña,mail,ubicacion) values ("+usu+",'"+contr+"',"+mail+","+ubicac+")");
         bd.close();
-        nombre.setText("");
-        contra.setText("");
-        correo.setText("");
-        ubicacion.setText("");
+        nombre.setText(usu);
+        contra.setText(contr);
+        correo.setText(mail);
+        ubicacion.setText(ubicac);
+
         Toast.makeText(this, "Se Creo un Nuevo Usuario",
                 Toast.LENGTH_SHORT).show();
     }
+
+
 
     public void Volver(View v) {
         finish();
