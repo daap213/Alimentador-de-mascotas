@@ -8,18 +8,20 @@ public class Usuario implements Serializable {
     private String ubicacion;
     private String telefono;
     private String contraseña;
+    private String genero;
 
     public Usuario() {
     }
 
 
-    public Usuario(Integer id, String nombre, String correo, String ubicacion, String telefono, String contraseña) {
+    public Usuario(Integer id, String nombre, String correo, String ubicacion, String telefono, String contraseña, String genero) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contraseña= contraseña;
         this.ubicacion = ubicacion;
         this.telefono = telefono;
+        this.genero= genero;
     }
 
     public Integer getId() {

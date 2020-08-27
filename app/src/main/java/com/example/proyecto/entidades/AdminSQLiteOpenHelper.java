@@ -1,109 +1,40 @@
 package com.example.proyecto.entidades;
 
-import android.annotation.TargetApi;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
-import android.util.Log;
 
-import com.example.proyecto.UsuarioAc;
+import com.example.proyecto.utilidades.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
-    //TODAS LAS VARIABLES ESTATICAS
-    private static AdminSQLiteOpenHelper sInstance; // instancia para evitar perdidas de memoria
-    private static final int DATABASE_VERSION=1;
 
-    //NOMBRE DE LA BASE DE DATOS
-    private static final String DATABASE_NOMBRE= "PST_GRUPO6";
-
-    //NOMBRES DE LAS TABLAS
-    private static final String USUARIO= "usuario";
-    private static final String MASCOTA= "mascota";
-
-    //COLUMNAS DE LA TABLA DE USUARIO
-    private static final String KEY_USUARIO_ID= "id";
-    private static final String KEY_USUARIO_NOMBRE= "nombre";
-    private static final String KEY_GENERO= "genero";
-    private static final String KEY_FN="Fecha de nacimiento";
-    private static final String KEY_CONTRASEÑA= "contraseña";
-    private static final String KEY_CORREO= "correo";
-    private static final String KEY_UBICACION="ubicacion";
-
-    //COLUMNAS DE LA TABLA DE MASCOTA
-    private static final String KEY_MASCOTA_ID= "id";
-    private static final String KEY_MASCOTA_ID_FK= "usuarioId";//llave foranea
-    private static final String KEY_MASCOTA_NOMBRE= "mascotaNombre";
-    private static final String KEY_RAZA= "raza";
-    private static final String KEY_EDAD= "edad";
-    private static final String KEY_TAMAÑO="tamaño";
-
-   //METODO PARA OBTENER LA INSTANCIA
-    public static synchronized AdminSQLiteOpenHelper getInstance(Context context) {
-        if (sInstance == null) {
-            sInstance = new AdminSQLiteOpenHelper(context.getApplicationContext());
-        }
-        return sInstance;
+    public AdminSQLiteOpenHelper(Context context,String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
     }
 
-    /* El constructor debe ser privado para evitar la instanciación directa.
-       Hacer una llamada al método estático "getInstance ()" en su lugar.
-    */
-    private AdminSQLiteOpenHelper(Context context) {
-        super(context, DATABASE_NOMBRE, null,DATABASE_VERSION );
-    }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public void onConfigure(SQLiteDatabase db) {
+   /* public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
-    }
+    }*/
 
-    //CREACION DE LAS TABLAS
+    //LAS TABLAS SE CREARON DENTRO DEL PAQUETE UTILIDADES
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_MASCOTA_TABLE = "CREATE TABLE "+ MASCOTA+
-                "(" +
-                KEY_MASCOTA_ID + " INTEGER PRIMARY KEY," + // Define la primary key
-                KEY_MASCOTA_ID_FK + " INTEGER REFERENCES " + USUARIO + "," + //llave foranea
-                KEY_EDAD + "INTEGER " +
-                KEY_MASCOTA_NOMBRE + "VARCHAR"  +
-                KEY_RAZA + "VARCHAR"  +
-                KEY_TAMAÑO +  "VARCHAR" +
-                ")";
 
-        String CREATE_USUARIO_TABLE = "CREATE TABLE " + USUARIO +
-                "(" +
-                KEY_USUARIO_ID + " INTEGER PRIMARY KEY,"+
-                KEY_USUARIO_NOMBRE+ "VARCHAR "+
-                KEY_GENERO+ "VARCHAR" +
-                KEY_FN+ "DATE"+
-                KEY_CONTRASEÑA+ "VARCHAR "+
-                KEY_CORREO+ "VARCHAR  "+
-                KEY_UBICACION +"VARCHAR "+
-                ")";
-
-        db.execSQL(CREATE_MASCOTA_TABLE);
-        db.execSQL(CREATE_USUARIO_TABLE);
+        db.execSQL(Utilidades.CREAR_TABLA_MASCOTA);
+        db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int viejaVersion, int nuevaVersion) {
-        if (viejaVersion != nuevaVersion) {
-            db.execSQL("DROP TABLE IF EXISTS " + MASCOTA);
-            db.execSQL("DROP TABLE IF EXISTS " + USUARIO);
-            onCreate(db);
-        }
+    public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
+        db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_USUARIO);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_MASCOTA);
+        onCreate(db);
     }
 
-    // METODO QUE AGREGA UNA MASCOTA A LA BASE DE DATOS
+   /* // METODO QUE AGREGA UNA MASCOTA A LA BASE DE DATOS
     public void agregarMascota(Mascota mascota) {
         // Crear y/o abrir la base de datos para la escritura
         SQLiteDatabase bd = getWritableDatabase();
@@ -214,9 +145,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
-    }
-
-
-
+    }*/
 
 }

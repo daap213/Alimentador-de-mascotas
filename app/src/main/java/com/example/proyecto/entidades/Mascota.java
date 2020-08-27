@@ -1,7 +1,5 @@
 package com.example.proyecto.entidades;
 
-import com.example.proyecto.UsuarioAc;
-
 import java.io.Serializable;
 
 public class Mascota implements Serializable {
