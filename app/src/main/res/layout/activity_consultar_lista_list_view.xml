@@ -10,8 +10,10 @@
     android:paddingRight="64dp"
     android:paddingTop="16dp"
     tools:context=".ConsultarListaMascotas">
-<ListView
+
+    <ListView
         android:id="@+id/listViewPersonas"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="608dp" />
+
 </RelativeLayout>
