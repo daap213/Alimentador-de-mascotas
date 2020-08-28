@@ -132,7 +132,8 @@ public class RegistroMascota extends AppCompatActivity {
 
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.registroMascota2: registrarMascota();
+            case R.id.registroMascota2:
+                registrarMascota();
         }
     }
 

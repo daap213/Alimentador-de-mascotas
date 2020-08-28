@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 public class RegistroUsuario extends AppCompatActivity {
     private EditText idUsuario, nombre, correo, ubicacion,  telefono, contraseña;
+
+    AdminSQLiteOpenHelper admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class RegistroUsuario extends AppCompatActivity {
         correo=(EditText)findViewById(R.id.correo);
         ubicacion=(EditText)findViewById(R.id.ubicacion);
         telefono= (EditText)findViewById(R.id.telefono);
-
+        admin=new AdminSQLiteOpenHelper(getApplicationContext(),"PST_G6",null,1);
     }
 
     public void Registrar(View v) {
@@ -68,9 +70,9 @@ public class RegistroUsuario extends AppCompatActivity {
 
 //METODO QUE REGISTRA Y VALIDA LOS USUARIOS
     private void registrarUsuarios() {
-        AdminSQLiteOpenHelper conn=new AdminSQLiteOpenHelper(this,"PST_G6",null,1);
+        admin=new AdminSQLiteOpenHelper(getApplicationContext(),"PST_G6",null,1);
 
-        SQLiteDatabase db=conn.getWritableDatabase();
+        SQLiteDatabase db=admin.getWritableDatabase();
 
         ContentValues values=new ContentValues();
         values.put(Utilidades.KEY_USUARIO_ID,idUsuario.getText().toString());

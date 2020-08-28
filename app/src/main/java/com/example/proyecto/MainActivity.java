@@ -3,7 +3,6 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,15 +14,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        AdminSQLiteOpenHelper admin =new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
+       AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"PST_G6",null,1);
 
     }
+public void Registrar(View v){
+    Intent i = new Intent(this, RegistroUsuario.class);
+    startActivity(i);
+}
 
-    public void onClick(View view) {
+
+  /*  public void onClick(View view) {
         Intent miIntent=null;
         switch (view.getId()){
-            case R.id.registrarse:
+            case R.id.registrarseInicio:
                 miIntent=new Intent(MainActivity.this,RegistroUsuario.class);
                 break;
             case R.id.loginUsuario:
@@ -32,28 +35,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.ConsultaListaMascota:
                 miIntent=new Intent(MainActivity.this,ConsultarListaMascotas.class);
                 break;
-            /*case R.id.btnRegistroMascota:
-                miIntent=new Intent(MainActivity.this,RegistroMascotaActivity.class);
-                break;
-            case R.id.btnConsultaIndividual:
-                miIntent=new Intent(MainActivity.this,ConsultarUsuariosActivity.class);
-                break;
-            case R.id.btnConsultaSpinner:
-                miIntent=new Intent(MainActivity.this,ConsultaComboActivity.class);
-                break;
-            case R.id.btnConsultaLista:
-                miIntent=new Intent(MainActivity.this,ConsultarListaListViewActivity.class);
-                break;
 
-            case R.id.btnConsultaListaPersonasRecycler:
-                miIntent=new Intent(MainActivity.this,ListaPersonasRecycler.class);
-                break;*/
         }
         if (miIntent!=null){
             startActivity(miIntent);
         }
-
-    }
-
-
+    }*/
 }

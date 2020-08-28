@@ -22,7 +22,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     //LAS TABLAS SE CREARON DENTRO DEL PAQUETE UTILIDADES
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(Utilidades.CREAR_TABLA_MASCOTA);
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
     }
