@@ -3,7 +3,7 @@
     <string name="name">Name</string>
     <string name="ingresar">Ingresar</string>
     <string name="registro">registro</string>
-    <string name="Registrar">Button</string>
+    <string name="Registrar">Registrar</string>
     <string name="volver">volver</string>
     <string name="Comenzar">Comience</string>
     <string name="contrase_a">Contraseña</string>
@@ -30,4 +30,6 @@
     <string name="nombreuser">nombreuser</string>
     <string name="iduser">iduser</string>
     <string name="ver_lista_de_mascotas">Ver Lista de Mascotas</string>
+    <string name="actualizar_datos">Actualizar Datos</string>
+    <string name="eliminar_usuario">Eliminar Usuario</string>
 </resources>
