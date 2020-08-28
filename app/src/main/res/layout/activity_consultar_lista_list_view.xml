@@ -12,8 +12,17 @@
     tools:context=".ConsultarListaPersonas">
 
     <ListView
+
         android:id="@+id/listViewPersonas"
         android:layout_width="wrap_content"
-        android:layout_height="608dp" />
+        android:layout_height="608dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="56dp" />
 
 </RelativeLayout>
