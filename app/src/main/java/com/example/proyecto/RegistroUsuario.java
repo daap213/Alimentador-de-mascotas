@@ -84,8 +84,9 @@ public class RegistroUsuario extends AppCompatActivity {
 
         Long idResultante=db.insert(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_ID,values);
 
-        Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
         db.close();
+        Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
+        System.out.println("hola");
     }
 
     // VUELVE AL LOGIN

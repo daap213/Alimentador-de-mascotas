@@ -17,13 +17,10 @@ public class MainActivity extends AppCompatActivity {
        AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"PST_G6",null,1);
 
     }
-public void Registrar(View v){
-    Intent i = new Intent(this, RegistroUsuario.class);
-    startActivity(i);
-}
 
 
-  /*  public void onClick(View view) {
+
+    public void onClick(View view) {
         Intent miIntent=null;
         switch (view.getId()){
             case R.id.registrarseInicio:
@@ -40,5 +37,5 @@ public void Registrar(View v){
         if (miIntent!=null){
             startActivity(miIntent);
         }
-    }*/
+    }
 }
