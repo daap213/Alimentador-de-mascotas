@@ -30,4 +30,6 @@
     <string name="nombreuser">nombreuser</string>
     <string name="iduser">iduser</string>
     <string name="ver_lista_de_mascotas">Ver Lista de Mascotas</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="registrar">Registrar</string>
 </resources>

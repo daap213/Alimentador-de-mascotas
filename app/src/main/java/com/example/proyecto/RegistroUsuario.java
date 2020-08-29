@@ -29,8 +29,8 @@ public class RegistroUsuario extends AppCompatActivity {
         }
 
     public void Registrar(View v) {
-       // registrarUsuarios();
-        registrarUsuariosSql();
+       registrarUsuarios();
+     //   registrarUsuariosSql();
 
     }
 
@@ -40,17 +40,17 @@ public class RegistroUsuario extends AppCompatActivity {
         SQLiteDatabase db=admin.getWritableDatabase();
 
         String insert="INSERT INTO "+Utilidades.TABLA_USUARIO
-                +" ( " +Utilidades.KEY_USUARIO_ID+"," +
-                ""+Utilidades.KEY_USUARIO_NOMBRE+"," +
+                +" ( " +Utilidades.KEY_USUARIO_NOMBRE+"," +
                 ""+Utilidades.KEY_USUARIO_CONTRASEÑA+"," +
                 ""+Utilidades.KEY_USUARIO_CORREO+"," +
-                ""+Utilidades.KEY_USUARIO_TELEFONO+","+
-                ""+Utilidades.KEY_USUARIO_UBICACION+") " +
+                ""+Utilidades.KEY_USUARIO_UBICACION+","+
+                ""+Utilidades.KEY_USUARIO_TELEFONO+
+                ") " +
                 " VALUES ("+nombre.getText().toString()+"','"
-                +contraseña.getText().toString()+"',"
-                +correo.getText().toString()+"',"
-                +telefono.getText().toString()+"',"
-                +ubicacion.getText().toString()+")";
+                +contraseña.getText().toString()+"','"
+                +correo.getText().toString()+"','"
+                +telefono.getText().toString()+"','"
+                +ubicacion.getText().toString()+"')";
         db.execSQL(insert);
         db.close();
     }
@@ -70,7 +70,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
         Long idResultante=db.insert(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_ID,values);
 
-        Toast.makeText(getApplicationContext(),"Id Usuario: "+idResultante + nombre.getText().toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Registro exitoso de "+ nombre.getText().toString()+"\n Id de Usuario:"+idResultante,Toast.LENGTH_SHORT).show();
         db.close();
     }
 

@@ -13,8 +13,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
-
-   /* public void onConfigure(SQLiteDatabase db) {
+/*
+    public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
     }*/
