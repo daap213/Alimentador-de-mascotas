@@ -89,6 +89,7 @@ public class RegistroMascota extends AppCompatActivity {
             Long idResultante=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.KEY_MASCOTA_ID,values);
             Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
             db.close();
+            limpiar();
 
         }else{
             Toast.makeText(getApplicationContext(),"Debe seleccionar un Dueño",Toast.LENGTH_LONG).show();
@@ -135,6 +136,12 @@ public class RegistroMascota extends AppCompatActivity {
             case R.id.registroMascota2:
                 registrarMascota();
         }
+    }
+    private void limpiar() {
+        razaMascota.setText("");
+        nombreMascota.setText("");
+        tamaño.setText("");
+        edadMascota.setText("");
     }
 
 }

@@ -50,6 +50,9 @@ public class UsuarioAc extends AppCompatActivity {
                 miIntent=new Intent(UsuarioAc.this,MainActivity.class);
                 break;
         }
+        if (miIntent!=null){
+            startActivity(miIntent);
+        }
     }
 
     private void eliminarUsuario() {

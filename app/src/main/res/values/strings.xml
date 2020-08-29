@@ -35,4 +35,7 @@
     <string name="actualizar_datos">Actualizar Datos</string>
     <string name="eliminar_usuario">Eliminar Usuario</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="edad_en_a_os">Edad (en años)</string>
+    <string name="tama_o_en_cm">Tamaño (en cm)</string>
+
 </resources>
