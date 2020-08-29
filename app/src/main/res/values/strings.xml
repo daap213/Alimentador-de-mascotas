@@ -32,4 +32,7 @@
     <string name="ver_lista_de_mascotas">Ver Lista de Mascotas</string>
     <string name="tel_fono">Teléfono</string>
     <string name="registrar">Registrar</string>
+    <string name="actualizar_datos">Actualizar Datos</string>
+    <string name="eliminar_usuario">Eliminar Usuario</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
 </resources>

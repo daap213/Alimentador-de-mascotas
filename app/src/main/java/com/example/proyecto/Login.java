@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         admin = new AdminSQLiteOpenHelper(this,
                 "PST_G6", null, 1);

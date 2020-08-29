@@ -72,10 +72,19 @@ public class RegistroUsuario extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(),"Registro exitoso de "+ nombre.getText().toString()+"\n Id de Usuario:"+idResultante,Toast.LENGTH_SHORT).show();
         db.close();
+        limpiar();
     }
 
     // VUELVE AL LOGIN
     public void Volver(View v) {
         finish();
+    }
+
+    private void limpiar() {
+        nombre.setText("");
+        contraseña.setText("");
+        correo.setText("");
+        ubicacion.setText("");
+        telefono.setText("");
     }
 }

@@ -35,16 +35,19 @@ public class UsuarioAc extends AppCompatActivity {
     }
 
     public void onClick(View view) {
+        Intent miIntent=null;
         switch (view.getId()){
             case R.id.registroMascota:
-                Intent i = new Intent(this, RegistroMascota.class);
-                startActivity(i);
+                miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
             case R.id.actualizarDatos:
                 actualizarUsuario();
                 break;
             case R.id.eliminarUsuario:
                 eliminarUsuario();
+                break;
+            case R.id.cerrarSesion:
+                miIntent=new Intent(UsuarioAc.this,MainActivity.class);
                 break;
         }
     }

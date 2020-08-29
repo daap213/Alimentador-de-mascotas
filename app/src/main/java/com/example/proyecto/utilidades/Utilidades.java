@@ -40,5 +40,4 @@ public class Utilidades {
             KEY_MASCOTA_EDAD + " VARCHAR," +
             KEY_RAZA + " VARCHAR," +
             KEY_TAMAÑO+ " INTEGER)";
-
 }
