@@ -34,31 +34,43 @@ public class Login extends AppCompatActivity {
     }
 
     public void Ingresar(View v) {
-        validarUsuarioYContraseña( nombreUsuario.getText().toString(),contraseña.getText().toString());
+   //     validarUsuarioYContraseña( nombreUsuario.getText().toString(),contraseña.getText().toString());
+        consultarUsuario();
     }
 
-    //METODO QUE CONSULTA SI EL USUARIO YA EXISTE EN LA BASE DE DATOS
-   /* public boolean validarUsuario(String usuario){
+    //ESTE METODO SI ME FUNCIONA PERO A MEDIAS
+
+    private void consultarUsuario() {
         SQLiteDatabase db=admin.getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELECT * FROM Utilidades.TABLA_USUARIO where Utilidades.KEY_USUARIO_NOMBRE=?" , new String[]{usuario});
+        String[] parametros={nombreUsuario.getText().toString()};
+        String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
 
-        if(cursor.getCount()>0){
-            Toast.makeText(getApplicationContext(),"El usuario o contraseña no existen", Toast.LENGTH_SHORT).show();
+        try {
+            Cursor cursor =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
+            cursor.moveToFirst();
+            nombreUsuario.setText(cursor.getString(0));
+            contraseña.setText(cursor.getString(1));
+            cursor.close();
 
-        }else {
             Intent i = new Intent(this, UsuarioAc.class);
             i.putExtra("nombre", nombreUsuario.getText().toString());
             startActivity(i);
-        }*/
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"El usuario no existe",Toast.LENGTH_LONG).show();
+            limpiar();
+        }
+
+    }
 
 
 
-
-    public void validarUsuarioYContraseña(String usuario, String contraseña){
+//ESTE METODO NO ME FUNCIONA :C
+   /* public void validarUsuarioYContraseña(String usuario, String contraseña){
         SQLiteDatabase db=admin.getReadableDatabase();
         Cursor cursor=db.rawQuery("SELECT * FROM Utilidades.TABLA_USUARIO where Utilidades.KEY_USUARIO_NOMBRE=? and Utilidades.KEY_USUARIO_CONTRASEÑA=?" , new String[]{usuario,contraseña});
 
         if(cursor.getCount()>0){
+            cursor.close();
             Intent i = new Intent(this, UsuarioAc.class);
             i.putExtra("nombre", nombreUsuario.getText().toString());
             startActivity(i);
@@ -67,7 +79,7 @@ public class Login extends AppCompatActivity {
             limpiar();
 
 
-    }
+    }*/
     //METODO QUE LIMPIA LOS CAMPOS DE ENTRADA DE TEXTO DEL LOGIN
     private void limpiar() {
         nombreUsuario.setText("");
