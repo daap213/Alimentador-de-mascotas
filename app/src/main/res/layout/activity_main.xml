@@ -49,11 +49,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/ConsultaListaMascota"
+        android:id="@+id/ConsultaListaUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
-        android:text="@string/ver_lista_de_mascotas"
+        android:text="@string/ver_lista_de_usuarios_registrados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

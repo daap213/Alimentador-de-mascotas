@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
+import com.example.proyecto.entidades.Usuario;
 import com.example.proyecto.utilidades.Utilidades;
 
 public class Login extends AppCompatActivity {
     private EditText nombreUsuario,contraseña;
     AdminSQLiteOpenHelper admin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,54 +28,46 @@ public class Login extends AppCompatActivity {
 
         nombreUsuario=(EditText)findViewById(R.id.nom);
         contraseña=(EditText)findViewById(R.id.contr);
+
+
+
     }
 
-
     public void Ingresar(View v) {
-        consultar();
+        validarUsuarioYContraseña( nombreUsuario.getText().toString(),contraseña.getText().toString());
     }
 
     //METODO QUE CONSULTA SI EL USUARIO YA EXISTE EN LA BASE DE DATOS
-    private void consultarSql() {
-        SQLiteDatabase db= admin.getReadableDatabase();
-        String[] parametros={nombreUsuario.getText().toString()};
-
-        try {
-            Cursor cursor=db.rawQuery("SELECT "+ Utilidades.KEY_USUARIO_NOMBRE+","+Utilidades.KEY_USUARIO_CONTRASEÑA+
-                    " FROM "+Utilidades.TABLA_USUARIO+" WHERE "+Utilidades.KEY_USUARIO_NOMBRE+"=? ",parametros);
-            cursor.moveToFirst();
-            nombreUsuario.setText(cursor.getString(0));
-            contraseña.setText(cursor.getString(1));
-
-        }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El usuario no existe",Toast.LENGTH_LONG).show();
-            limpiar();
-        }
-    }
-    //Metodo que
-    private void consultar() {
+   /* public boolean validarUsuario(String usuario){
         SQLiteDatabase db=admin.getReadableDatabase();
-        String[] parametros={nombreUsuario.getText().toString()}; //ambos parametros deben coincidir
-        String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
+        Cursor cursor=db.rawQuery("SELECT * FROM Utilidades.TABLA_USUARIO where Utilidades.KEY_USUARIO_NOMBRE=?" , new String[]{usuario});
 
-        try {
-            Cursor cursor =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
+        if(cursor.getCount()>0){
+            Toast.makeText(getApplicationContext(),"El usuario o contraseña no existen", Toast.LENGTH_SHORT).show();
 
-            cursor.moveToFirst();
-            nombreUsuario.setText(cursor.getString(0));
-            contraseña.setText(cursor.getString(1));
-            cursor.close();
+        }else {
             Intent i = new Intent(this, UsuarioAc.class);
             i.putExtra("nombre", nombreUsuario.getText().toString());
             startActivity(i);
+        }*/
 
 
-        }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
+
+
+    public void validarUsuarioYContraseña(String usuario, String contraseña){
+        SQLiteDatabase db=admin.getReadableDatabase();
+        Cursor cursor=db.rawQuery("SELECT * FROM Utilidades.TABLA_USUARIO where Utilidades.KEY_USUARIO_NOMBRE=? and Utilidades.KEY_USUARIO_CONTRASEÑA=?" , new String[]{usuario,contraseña});
+
+        if(cursor.getCount()>0){
+            Intent i = new Intent(this, UsuarioAc.class);
+            i.putExtra("nombre", nombreUsuario.getText().toString());
+            startActivity(i);
+        }else
+            Toast.makeText(getApplicationContext(),"El usuario o contraseña no existen", Toast.LENGTH_SHORT).show();
             limpiar();
-        }
-    }
 
+
+    }
     //METODO QUE LIMPIA LOS CAMPOS DE ENTRADA DE TEXTO DEL LOGIN
     private void limpiar() {
         nombreUsuario.setText("");

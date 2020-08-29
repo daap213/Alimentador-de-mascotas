@@ -18,7 +18,7 @@ import com.example.proyecto.utilidades.Utilidades;
 
 import java.util.ArrayList;
 
-public class ConsultarListaMascotas extends AppCompatActivity {
+public class ConsultarListaPersonas extends AppCompatActivity {
 
     ListView listViewPersonas;
     ArrayList<String> listaInformacion;
@@ -45,6 +45,7 @@ public class ConsultarListaMascotas extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
                 informacion+="Nombre: "+listaUsuarios.get(pos).getNombre()+"\n";
+                informacion+="Contraseña: "+listaUsuarios.get(pos).getContraseña()+"\n";
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
                 informacion+="Correo: "+listaUsuarios.get(pos).getCorreo()+"\n";
                 informacion+="Ubicación: "+listaUsuarios.get(pos).getUbicacion()+"\n";
@@ -52,7 +53,7 @@ public class ConsultarListaMascotas extends AppCompatActivity {
 
                 Usuario user=listaUsuarios.get(pos);
 
-                Intent intent=new Intent(ConsultarListaMascotas.this,DetallesdelUsuario.class);
+                Intent intent=new Intent(ConsultarListaPersonas.this,DetallesdelUsuario.class);
 
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("usuario",user);
