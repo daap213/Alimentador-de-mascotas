@@ -31,24 +31,6 @@ public class Login extends AppCompatActivity {
 
     public void Ingresar(View v) {
         consultar();
-
-      /*  SQLiteDatabase bd = admin.getReadableDatabase();
-        String usuario = nombreUsuario.getText().toString();
-        String contr = contraseña.getText().toString();
-
-        Cursor cont = bd.rawQuery(
-                "select usuario,contraseña, email from USUARIO where contraseña=" + contr, null);
-        Cursor usu = bd.rawQuery(
-                "select usuario,contraseña, email from USUARIO where usuario=" + usuario, null);
-        if (usu.moveToFirst()) {
-            if( cont.moveToFirst()){
-                Intent i = new Intent(this, UsuarioAc.class);
-                startActivity(i);
-            }
-        } else
-            Toast.makeText(this, "El Usuario o Contraseña no son Válidos",
-                    Toast.LENGTH_SHORT).show();
-        bd.close();*/
     }
 
     //METODO QUE CONSULTA SI EL USUARIO YA EXISTE EN LA BASE DE DATOS
@@ -68,23 +50,26 @@ public class Login extends AppCompatActivity {
             limpiar();
         }
     }
-
+    //Metodo que
     private void consultar() {
         SQLiteDatabase db=admin.getReadableDatabase();
-        String[] parametros={nombreUsuario.getText().toString()};
+        String[] parametros={nombreUsuario.getText().toString()}; //ambos parametros deben coincidir
         String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
 
         try {
             Cursor cursor =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
+
             cursor.moveToFirst();
             nombreUsuario.setText(cursor.getString(0));
             contraseña.setText(cursor.getString(1));
             cursor.close();
             Intent i = new Intent(this, UsuarioAc.class);
+            i.putExtra("nombre", nombreUsuario.getText().toString());
             startActivity(i);
 
+
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El usuario no existe",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"El usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
             limpiar();
         }
     }
