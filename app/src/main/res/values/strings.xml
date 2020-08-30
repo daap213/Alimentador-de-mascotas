@@ -6,10 +6,10 @@
     <string name="Registrar">Button</string>
     <string name="volver">volver</string>
     <string name="Comenzar">Comience</string>
-    <string name="contrase_a">Contraseña</string>
+    <string name="contrase_a1">Contraseña</string>
     <string name="nombre">Nombre</string>
     <string name="ubicacion">Ubicacion</string>
-    <string name="correo">Correo</string>
+    <string name="correo1">Correo</string>
     <string name="comience">comience</string>
     <string name="telefono">telefono</string>
     <string name="consultar_usuarios">Consultar Usuarios</string>
@@ -43,5 +43,6 @@
     <string name="nombreusuario">NombreUsuario</string>
     <string name="email">email</string>
     <string name="contrase_a">Contraseña</string>
+    <string name="nombres">Nombres</string>
 
 </resources>
