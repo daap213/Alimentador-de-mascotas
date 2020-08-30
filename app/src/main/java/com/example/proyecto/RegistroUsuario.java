@@ -13,7 +13,7 @@ import com.example.proyecto.utilidades.Utilidades;
 import android.widget.Toast;
 
 public class RegistroUsuario extends AppCompatActivity {
-    private EditText nombre, correo, ubicacion,  telefono, contraseña;
+    private EditText nombreUsuario,nombres, correo, ubicacion,  telefono, contraseña;
 
     AdminSQLiteOpenHelper admin;
     @Override
@@ -21,7 +21,8 @@ public class RegistroUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        nombre=(EditText)findViewById(R.id.nombre);
+        nombreUsuario=(EditText)findViewById(R.id.nombre);
+        nombres=(EditText)findViewById(R.id.nombre);
         contraseña=(EditText)findViewById(R.id.contraseña);
         correo=(EditText)findViewById(R.id.correo);
         ubicacion=(EditText)findViewById(R.id.ubicacion);
@@ -61,7 +62,7 @@ public class RegistroUsuario extends AppCompatActivity {
         SQLiteDatabase db= admin.getWritableDatabase();
 
         ContentValues values=new ContentValues();
-        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombre.getText().toString());
+        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombres.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CONTRASEÑA,contraseña.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CORREO,correo.getText().toString());
         values.put(Utilidades.KEY_USUARIO_TELEFONO,telefono.getText().toString());
@@ -70,7 +71,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
         Long idResultante=db.insert(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_ID,values);
 
-        Toast.makeText(getApplicationContext(),"Registro exitoso de "+ nombre.getText().toString()+"\n Id de Usuario:"+idResultante,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Registro exitoso de "+ nombres.getText().toString()+"\n Id de Usuario:"+idResultante,Toast.LENGTH_SHORT).show();
         db.close();
         limpiar();
     }
@@ -81,7 +82,8 @@ public class RegistroUsuario extends AppCompatActivity {
     }
 
     private void limpiar() {
-        nombre.setText("");
+        nombreUsuario.setText("");
+        nombres.setText("");
         contraseña.setText("");
         correo.setText("");
         ubicacion.setText("");

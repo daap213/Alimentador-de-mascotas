@@ -33,26 +33,27 @@ public class Login extends AppCompatActivity {
         consultarUsuario();
     }
 
-    //ESTE METODO SI  FUNCIONA MASO
 
     private void consultarUsuario() {
         SQLiteDatabase db=admin.getReadableDatabase();
         String[] parametros={nombreUsuario.getText().toString()};
         String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
-
+        String[] parametros2={contraseña.getText().toString()};
         try {
             Cursor usuario =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
             usuario.moveToFirst();
             nombreUsuario.setText(usuario.getString(0));
+
             try {
-                Cursor contraseña =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_CONTRASEÑA+"=?",parametros,null,null,null);
+                Cursor contraseña =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_CONTRASEÑA+"=?",parametros2,null,null,null);
+                Intent i = new Intent(this, UsuarioAc.class);
+                i.putExtra("nombre", nombreUsuario.getText().toString());
                 contraseña.move(1);
                 nombreUsuario.setText(contraseña.getString(1));
                 usuario.close();
                 contraseña.close();
 
-                Intent i = new Intent(this, UsuarioAc.class);
-                i.putExtra("nombre", nombreUsuario.getText().toString());
+
                 startActivity(i);
             }
             catch (Exception e){

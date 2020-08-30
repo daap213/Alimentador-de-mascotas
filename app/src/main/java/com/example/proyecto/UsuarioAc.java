@@ -67,7 +67,11 @@ public class UsuarioAc extends AppCompatActivity {
     }
 
     private void actualizarUsuario() { //AQUI pueden agregar mas campos del usuario
+
         SQLiteDatabase db=admin.getWritableDatabase();
+        Intent i = new Intent(this, RegistroUsuario.class);
+        i.putExtra("nombre", nombreUsuario.getText().toString());
+
         String[] parametros={nombreUsuario.getText().toString()};
         ContentValues values=new ContentValues();
         values.put(Utilidades.KEY_USUARIO_NOMBRE,nombreUsuario.getText().toString());
