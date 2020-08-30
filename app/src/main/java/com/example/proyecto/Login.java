@@ -37,10 +37,10 @@ public class Login extends AppCompatActivity {
     private void consultarUsuario() {
         SQLiteDatabase db=admin.getReadableDatabase();
         String[] parametros={nombreUsuario.getText().toString()};
-        String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
+        String[] campos={Utilidades.KEY_USUARIO_NOMBREUSUARIO,Utilidades.KEY_USUARIO_CONTRASEÑA};
         String[] parametros2={contraseña.getText().toString()};
         try {
-            Cursor usuario =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
+            Cursor usuario =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros,null,null,null);
             usuario.moveToFirst();
             nombreUsuario.setText(usuario.getString(0));
 

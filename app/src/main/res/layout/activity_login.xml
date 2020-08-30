@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="684dp"
         android:ems="10"
-        android:hint="Nombre de usuario"
+        android:hint="@string/nombre_de_usuario"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:labelFor="@id/contr"
@@ -34,17 +34,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom" />
 
     <Button
         android:id="@+id/ingresarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="108dp"
         android:onClick="Ingresar"
         android:text="@string/ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/contr" />
 </androidx.constraintlayout.widget.ConstraintLayout>
