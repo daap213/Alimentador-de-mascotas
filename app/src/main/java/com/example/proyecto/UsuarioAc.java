@@ -17,7 +17,6 @@ import com.example.proyecto.utilidades.Utilidades;
 
 public class UsuarioAc extends AppCompatActivity {
 
-    private EditText contraseña;
     private TextView bienvenida;
     private String nombreUsuario;
     AdminSQLiteOpenHelper admin;
@@ -26,13 +25,14 @@ public class UsuarioAc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_ac);
-       admin =new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
+        admin =new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
 
        Bundle bundle = getIntent().getExtras();
 
        bienvenida= (TextView) findViewById(R.id.mensajeBienvenida);
        bienvenida.setText("Bienvenid@ "+bundle.getString("nombre"));
-       nombreUsuario=bundle.getString("nombre");
+
+       nombreUsuario=bundle.getString("nombre");//BORRAR ESTA LINES Si se eliminan los botones d actualizar y eliminar usuari
 
     }
 
@@ -42,11 +42,17 @@ public class UsuarioAc extends AppCompatActivity {
             case R.id.registroMascota:
                 miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
+            case R.id.verMascota:
+                consultarMascotas();
+                break;
             case R.id.actualizarDatos:
                 miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
                 break;
             case R.id.eliminarUsuario:
                 eliminarUsuario();
+                break;
+            case R.id.horario:
+                miIntent=new Intent(UsuarioAc.this,HorariodeComida.class);
                 break;
             case R.id.cerrarSesion:
                 miIntent=new Intent(UsuarioAc.this,MainActivity.class);
@@ -66,9 +72,8 @@ public class UsuarioAc extends AppCompatActivity {
 
         db.close();
     }
+    public void consultarMascotas(){
 
-
-
-
+    }
 
 }
