@@ -33,8 +33,8 @@ public class RegistroUsuario extends AppCompatActivity {
      //   registrarUsuariosSql();
 
     }
-
-    private void registrarUsuariosSql() {
+    //METODO ALTERNATIVO A REGISTRAR USUARIOS
+ /*   private void registrarUsuariosSql() {
         AdminSQLiteOpenHelper admin=new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
 
         SQLiteDatabase db=admin.getWritableDatabase();
@@ -53,7 +53,7 @@ public class RegistroUsuario extends AppCompatActivity {
                 +ubicacion.getText().toString()+"')";
         db.execSQL(insert);
         db.close();
-    }
+    }*/
 
 //METODO QUE REGISTRA Y VALIDA LOS USUARIOS
     private void registrarUsuarios() {

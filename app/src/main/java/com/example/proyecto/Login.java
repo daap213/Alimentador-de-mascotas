@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         consultarUsuario();
     }
 
-    //ESTE METODO SI  FUNCIONA
+    //ESTE METODO SI  FUNCIONA MASO
 
     private void consultarUsuario() {
         SQLiteDatabase db=admin.getReadableDatabase();
