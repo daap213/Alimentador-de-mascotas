@@ -17,8 +17,9 @@ import com.example.proyecto.utilidades.Utilidades;
 
 public class UsuarioAc extends AppCompatActivity {
 
-    private EditText nombreUsuario,contraseña;
+    private EditText contraseña;
     private TextView bienvenida;
+    private String nombreUsuario;
     AdminSQLiteOpenHelper admin;
 
     @Override
@@ -31,7 +32,8 @@ public class UsuarioAc extends AppCompatActivity {
 
        bienvenida= (TextView) findViewById(R.id.mensajeBienvenida);
        bienvenida.setText("Bienvenid@ "+bundle.getString("nombre"));
-       ////////////////////////////////////////////////
+       nombreUsuario=bundle.getString("nombre");
+
     }
 
     public void onClick(View view) {
@@ -41,7 +43,7 @@ public class UsuarioAc extends AppCompatActivity {
                 miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
             case R.id.actualizarDatos:
-                actualizarUsuario();
+                miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
                 break;
             case R.id.eliminarUsuario:
                 eliminarUsuario();
@@ -54,38 +56,19 @@ public class UsuarioAc extends AppCompatActivity {
             startActivity(miIntent);
         }
     }
-
+//falta probar si funciona
     private void eliminarUsuario() {
         SQLiteDatabase db=admin.getWritableDatabase();
-        String[] parametros={nombreUsuario.getText().toString()};
+        String[] parametros={nombreUsuario};
 
         db.delete(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros);
         Toast.makeText(getApplicationContext(),"Ya se Eliminó el usuario",Toast.LENGTH_LONG).show();
-        nombreUsuario.setText("");
-        limpiar();
-        db.close();
-    }
 
-    private void actualizarUsuario() { //AQUI pueden agregar mas campos del usuario
-
-        SQLiteDatabase db=admin.getWritableDatabase();
-        Intent i = new Intent(this, RegistroUsuario.class);
-        i.putExtra("nombre", nombreUsuario.getText().toString());
-
-        String[] parametros={nombreUsuario.getText().toString()};
-        ContentValues values=new ContentValues();
-        values.put(Utilidades.KEY_USUARIO_NOMBREUSUARIO,nombreUsuario.getText().toString());
-        values.put(Utilidades.KEY_USUARIO_CONTRASEÑA,contraseña.getText().toString());
-
-        db.update(Utilidades.TABLA_USUARIO,values,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"Se actualizaron los datos del usuario con éxito",Toast.LENGTH_LONG).show();
         db.close();
     }
 
 
-    private void limpiar() {
-        nombreUsuario.setText("");
-        contraseña.setText("");
-    }
+
+
 
 }

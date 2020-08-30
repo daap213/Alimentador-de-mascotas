@@ -53,7 +53,6 @@ public class Login extends AppCompatActivity {
                 usuario.close();
                 contraseña.close();
 
-
                 startActivity(i);
             }
             catch (Exception e){
@@ -68,24 +67,6 @@ public class Login extends AppCompatActivity {
 
     }
 
-
-
-//ESTE METODO NO ME FUNCIONA :C
-   /* public void validarUsuarioYContraseña(String usuario, String contraseña){
-        SQLiteDatabase db=admin.getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELECT * FROM Utilidades.TABLA_USUARIO where Utilidades.KEY_USUARIO_NOMBRE=? and Utilidades.KEY_USUARIO_CONTRASEÑA=?" , new String[]{usuario,contraseña});
-
-        if(cursor.getCount()>0){
-            cursor.close();
-            Intent i = new Intent(this, UsuarioAc.class);
-            i.putExtra("nombre", nombreUsuario.getText().toString());
-            startActivity(i);
-        }else
-            Toast.makeText(getApplicationContext(),"El usuario o contraseña no existen", Toast.LENGTH_SHORT).show();
-            limpiar();
-
-
-    }*/
 
     //METODO QUE LIMPIA LOS CAMPOS DE ENTRADA DE TEXTO DEL LOGIN
     private void limpiar() {

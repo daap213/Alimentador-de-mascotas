@@ -44,8 +44,8 @@ public class ConsultarListaPersonas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
-                informacion+="Nombre: "+listaUsuarios.get(pos).getNombreUsuario()+"\n";
-                informacion+="Nombre: "+listaUsuarios.get(pos).getNombres()+"\n";
+                informacion+="Nombre de Usuario: "+listaUsuarios.get(pos).getNombreUsuario()+"\n";
+                informacion+="Nombres: "+listaUsuarios.get(pos).getNombres()+"\n";
                 informacion+="Contraseña: "+listaUsuarios.get(pos).getContraseña()+"\n";
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
                 informacion+="Correo: "+listaUsuarios.get(pos).getCorreo()+"\n";
@@ -67,7 +67,7 @@ public class ConsultarListaPersonas extends AppCompatActivity {
 
     }
 
-    private void consultarListaPersonas() {
+    public void consultarListaPersonas() {
         SQLiteDatabase db=admin.getReadableDatabase();
 
         Usuario usuario=null;
@@ -80,16 +80,16 @@ public class ConsultarListaPersonas extends AppCompatActivity {
             usuario.setNombreUsuario(cursor.getString(1));
             usuario.setNombres(cursor.getString(2));
             usuario.setContraseña(cursor.getString(3));
-            usuario.setCorreo(cursor.getString(3));
-            usuario.setUbicacion(cursor.getString(3));
-            usuario.setTelefono(cursor.getString(3));
+            usuario.setCorreo(cursor.getString(4));
+            usuario.setUbicacion(cursor.getString(5));
+            usuario.setTelefono(cursor.getString(6));
 
             listaUsuarios.add(usuario);
         }
         obtenerLista();
     }
 
-    private void obtenerLista() {
+    public void obtenerLista() {
         listaInformacion=new ArrayList<String>();
 
         for (int i=0; i<listaUsuarios.size();i++){

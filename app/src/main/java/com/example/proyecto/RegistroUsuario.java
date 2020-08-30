@@ -15,7 +15,6 @@ import android.widget.Toast;
 public class RegistroUsuario extends AppCompatActivity {
     private EditText nombreUsuario,nombres, correo, ubicacion,  telefono, contraseña;
 
-    AdminSQLiteOpenHelper admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
