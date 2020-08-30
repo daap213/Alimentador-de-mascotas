@@ -9,7 +9,8 @@ public class Utilidades {
 
     //COLUMNAS DE LA TABLA DE USUARIO
     public static final String KEY_USUARIO_ID= "id";
-    public static final String KEY_USUARIO_NOMBRE= "nombre";
+    public static final String KEY_USUARIO_NOMBREUSUARIO= "nombreUsuario";
+    public static final String KEY_USUARIO_NOMBRES= "nombres";
     public static final String KEY_USUARIO_CONTRASEÑA= "contraseña";
     public static final String KEY_USUARIO_CORREO= "correo";
     public static final String KEY_USUARIO_UBICACION="ubicacion";
@@ -35,11 +36,12 @@ public class Utilidades {
     public static final String CREAR_TABLA_USUARIO="CREATE TABLE " +
             ""+TABLA_USUARIO+" ("+KEY_USUARIO_ID + " "+
             "INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            KEY_USUARIO_NOMBRE + " VARCHAR," +
+            KEY_USUARIO_NOMBREUSUARIO + " VARCHAR," +
+            KEY_USUARIO_NOMBRES + " VARCHAR," +
             KEY_USUARIO_CONTRASEÑA + " VARCHAR," +
             KEY_USUARIO_CORREO + " VARCHAR," +
-            KEY_USUARIO_TELEFONO + " VARCHAR,"+
-            KEY_USUARIO_UBICACION + " VARCHAR)";
+            KEY_USUARIO_UBICACION+ " VARCHAR,"+
+            KEY_USUARIO_TELEFONO+ " VARCHAR)";
 
     public static final String CREAR_TABLA_MASCOTA="CREATE TABLE " +
             ""+TABLA_MASCOTA+" ("+KEY_MASCOTA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+

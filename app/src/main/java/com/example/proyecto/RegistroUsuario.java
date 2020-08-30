@@ -34,27 +34,6 @@ public class RegistroUsuario extends AppCompatActivity {
      //   registrarUsuariosSql();
 
     }
-    //METODO ALTERNATIVO A REGISTRAR USUARIOS
- /*   private void registrarUsuariosSql() {
-        AdminSQLiteOpenHelper admin=new  AdminSQLiteOpenHelper(this,"PST_G6",null,1);
-
-        SQLiteDatabase db=admin.getWritableDatabase();
-
-        String insert="INSERT INTO "+Utilidades.TABLA_USUARIO
-                +" ( " +Utilidades.KEY_USUARIO_NOMBRE+"," +
-                ""+Utilidades.KEY_USUARIO_CONTRASEÑA+"," +
-                ""+Utilidades.KEY_USUARIO_CORREO+"," +
-                ""+Utilidades.KEY_USUARIO_UBICACION+","+
-                ""+Utilidades.KEY_USUARIO_TELEFONO+
-                ") " +
-                " VALUES ("+nombre.getText().toString()+"','"
-                +contraseña.getText().toString()+"','"
-                +correo.getText().toString()+"','"
-                +telefono.getText().toString()+"','"
-                +ubicacion.getText().toString()+"')";
-        db.execSQL(insert);
-        db.close();
-    }*/
 
 //METODO QUE REGISTRA Y VALIDA LOS USUARIOS
     private void registrarUsuarios() {
@@ -62,6 +41,7 @@ public class RegistroUsuario extends AppCompatActivity {
         SQLiteDatabase db= admin.getWritableDatabase();
 
         ContentValues values=new ContentValues();
+        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombreUsuario.getText().toString());
         values.put(Utilidades.KEY_USUARIO_NOMBRE,nombres.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CONTRASEÑA,contraseña.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CORREO,correo.getText().toString());
