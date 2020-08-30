@@ -59,7 +59,7 @@ public class UsuarioAc extends AppCompatActivity {
         SQLiteDatabase db=admin.getWritableDatabase();
         String[] parametros={nombreUsuario.getText().toString()};
 
-        db.delete(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros);
+        db.delete(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros);
         Toast.makeText(getApplicationContext(),"Ya se Eliminó el usuario",Toast.LENGTH_LONG).show();
         nombreUsuario.setText("");
         limpiar();
@@ -74,10 +74,10 @@ public class UsuarioAc extends AppCompatActivity {
 
         String[] parametros={nombreUsuario.getText().toString()};
         ContentValues values=new ContentValues();
-        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombreUsuario.getText().toString());
+        values.put(Utilidades.KEY_USUARIO_NOMBREUSUARIO,nombreUsuario.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CONTRASEÑA,contraseña.getText().toString());
 
-        db.update(Utilidades.TABLA_USUARIO,values,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros);
+        db.update(Utilidades.TABLA_USUARIO,values,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros);
         Toast.makeText(getApplicationContext(),"Se actualizaron los datos del usuario con éxito",Toast.LENGTH_LONG).show();
         db.close();
     }

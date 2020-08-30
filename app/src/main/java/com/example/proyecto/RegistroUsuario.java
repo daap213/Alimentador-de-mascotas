@@ -21,7 +21,7 @@ public class RegistroUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        nombreUsuario=(EditText)findViewById(R.id.nombre);
+        nombreUsuario=(EditText)findViewById(R.id.nombreUsuario);
         nombres=(EditText)findViewById(R.id.nombre);
         contraseña=(EditText)findViewById(R.id.contraseña);
         correo=(EditText)findViewById(R.id.correo);
@@ -41,8 +41,8 @@ public class RegistroUsuario extends AppCompatActivity {
         SQLiteDatabase db= admin.getWritableDatabase();
 
         ContentValues values=new ContentValues();
-        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombreUsuario.getText().toString());
-        values.put(Utilidades.KEY_USUARIO_NOMBRE,nombres.getText().toString());
+        values.put(Utilidades.KEY_USUARIO_NOMBREUSUARIO,nombreUsuario.getText().toString());
+        values.put(Utilidades.KEY_USUARIO_NOMBRES,nombres.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CONTRASEÑA,contraseña.getText().toString());
         values.put(Utilidades.KEY_USUARIO_CORREO,correo.getText().toString());
         values.put(Utilidades.KEY_USUARIO_TELEFONO,telefono.getText().toString());

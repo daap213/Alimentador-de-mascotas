@@ -106,13 +106,16 @@ public class RegistroMascota extends AppCompatActivity {
         while (cursor.moveToNext()){
             persona=new Usuario();
             persona.setId(cursor.getInt(0));
-            persona.setNombre(cursor.getString(1));
-            persona.setTelefono(cursor.getString(2));
-            persona.setCorreo(cursor.getString(3));
-            persona.setUbicacion(cursor.getString(4));
+
+            persona.setNombreUsuario(cursor.getString(1));
+            persona.setNombres(cursor.getString(2));
+            persona.setTelefono(cursor.getString(3));
+            persona.setCorreo(cursor.getString(4));
+            persona.setUbicacion(cursor.getString(5));
 
             Log.i("id",persona.getId().toString());
-            Log.i("Nombre",persona.getNombre());
+            Log.i("Nombre de usuario",persona.getNombreUsuario());
+            Log.i("Nombre",persona.getNombres());
             Log.i("Correo",persona.getCorreo());
             Log.i("Ubicacion",persona.getUbicacion());
             Log.i("Telefono",persona.getTelefono());
@@ -127,7 +130,7 @@ public class RegistroMascota extends AppCompatActivity {
         listaUsuarios.add("Seleccione");
 
         for(int i=0;i<usuariosList.size();i++){
-            listaUsuarios.add(usuariosList.get(i).getId()+" - "+usuariosList.get(i).getNombre());
+            listaUsuarios.add(usuariosList.get(i).getId()+" - "+usuariosList.get(i).getNombreUsuario());
         }
     }
 
