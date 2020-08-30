@@ -31,7 +31,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
     public void Registrar(View v) {
        registrarUsuarios();
-     //   registrarUsuariosSql();
+
 
     }
 
