@@ -32,8 +32,7 @@ public class UsuarioAc extends AppCompatActivity {
        bienvenida= (TextView) findViewById(R.id.mensajeBienvenida);
        bienvenida.setText("Bienvenid@ "+bundle.getString("nombre"));
 
-       nombreUsuario=bundle.getString("nombre");//BORRAR ESTA LINES Si se eliminan los botones d actualizar y eliminar usuari
-
+       nombreUsuario=bundle.getString("nombre");//BORRAR ESTA LINES Si se eliminan los botones d actualizar Datos d usuario
     }
 
     public void onClick(View view) {
@@ -43,7 +42,7 @@ public class UsuarioAc extends AppCompatActivity {
                 miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
             case R.id.verMascota:
-                consultarMascotas();
+                miIntent=new Intent(UsuarioAc.this,ListaMascota.class);
                 break;
             case R.id.actualizarDatos:
                 miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
@@ -62,18 +61,16 @@ public class UsuarioAc extends AppCompatActivity {
             startActivity(miIntent);
         }
     }
-//falta probar si funciona
+
     private void eliminarUsuario() {
         SQLiteDatabase db=admin.getWritableDatabase();
         String[] parametros={nombreUsuario};
 
         db.delete(Utilidades.TABLA_USUARIO,Utilidades.KEY_USUARIO_NOMBREUSUARIO+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"Ya se Eliminó el usuario",Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getApplicationContext(),"Se Eliminó el usuario",Toast.LENGTH_LONG).show();
         db.close();
-    }
-    public void consultarMascotas(){
-
+        Intent i = new Intent(this, UsuarioAc.class);
+        startActivity(i);
     }
 
 }

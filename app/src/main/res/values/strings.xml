@@ -52,5 +52,11 @@
     <string name="dar_comida">Dar comida</string>
     <string name="dar_agua">Dar agua</string>
     <string name="horario_de_comida">Horario de comida</string>
+    <string name="raza_mascota">Raza Mascota</string>
+    <string name="idmascota">IdMascota</string>
+    <string name="nombre_de_mascota">Nombre de mascota</string>
+    <string name="due_o">Dueño</string>
+    <string name="id_del_due_o">Id del dueño</string>
+    <string name="tama_o_d_la_mascota">Tamaño d la mascota</string>
 
 </resources>

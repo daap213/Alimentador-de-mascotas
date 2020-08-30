@@ -57,7 +57,6 @@ public class Login extends AppCompatActivity {
             }
             catch (Exception e){
                 Toast.makeText(getApplicationContext(),"La contraseña esta incorrecta",Toast.LENGTH_LONG).show();
-                limpiar();
             }
 
         }catch (Exception e){
