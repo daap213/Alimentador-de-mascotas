@@ -44,7 +44,8 @@ public class ConsultarListaPersonas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
-                informacion+="Nombre: "+listaUsuarios.get(pos).getNombre()+"\n";
+                informacion+="Nombre: "+listaUsuarios.get(pos).getNombreUsuario()+"\n";
+                informacion+="Nombre: "+listaUsuarios.get(pos).getNombres()+"\n";
                 informacion+="Contraseña: "+listaUsuarios.get(pos).getContraseña()+"\n";
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
                 informacion+="Correo: "+listaUsuarios.get(pos).getCorreo()+"\n";
@@ -71,14 +72,17 @@ public class ConsultarListaPersonas extends AppCompatActivity {
 
         Usuario usuario=null;
         listaUsuarios=new ArrayList<Usuario>();
-        //select * from usuarios
         Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_USUARIO,null);
 
         while (cursor.moveToNext()){
             usuario=new Usuario();
             usuario.setId(cursor.getInt(0));
-            usuario.setNombre(cursor.getString(1));
-            usuario.setTelefono(cursor.getString(2));
+            usuario.setNombreUsuario(cursor.getString(1));
+            usuario.setNombres(cursor.getString(2));
+            usuario.setContraseña(cursor.getString(3));
+            usuario.setCorreo(cursor.getString(3));
+            usuario.setUbicacion(cursor.getString(3));
+            usuario.setTelefono(cursor.getString(3));
 
             listaUsuarios.add(usuario);
         }
@@ -90,7 +94,7 @@ public class ConsultarListaPersonas extends AppCompatActivity {
 
         for (int i=0; i<listaUsuarios.size();i++){
             listaInformacion.add(listaUsuarios.get(i).getId()+" - "
-                    +listaUsuarios.get(i).getNombre());
+                    +listaUsuarios.get(i).getNombreUsuario());
         }
 
     }

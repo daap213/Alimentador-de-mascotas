@@ -40,5 +40,8 @@
     <string name="ver_lista_de_usuarios_registrados">Ver Lista de usuarios registrados</string>
     <string name="correo">Correo</string>
     <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="nombreusuario">NombreUsuario</string>
+    <string name="email">email</string>
+    <string name="contrase_a">Contraseña</string>
 
 </resources>
