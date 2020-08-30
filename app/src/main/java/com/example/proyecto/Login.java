@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
-import com.example.proyecto.entidades.Usuario;
 import com.example.proyecto.utilidades.Utilidades;
 
 public class Login extends AppCompatActivity {
@@ -28,13 +27,9 @@ public class Login extends AppCompatActivity {
 
         nombreUsuario=(EditText)findViewById(R.id.nom);
         contraseña=(EditText)findViewById(R.id.contr);
-
-
-
     }
 
     public void Ingresar(View v) {
-   //     validarUsuarioYContraseña( nombreUsuario.getText().toString(),contraseña.getText().toString());
         consultarUsuario();
     }
 
@@ -46,15 +41,25 @@ public class Login extends AppCompatActivity {
         String[] campos={Utilidades.KEY_USUARIO_NOMBRE,Utilidades.KEY_USUARIO_CONTRASEÑA};
 
         try {
-            Cursor cursor =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
-            cursor.moveToFirst();
-            nombreUsuario.setText(cursor.getString(0));
-            contraseña.setText(cursor.getString(1));
-            cursor.close();
+            Cursor usuario =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_NOMBRE+"=?",parametros,null,null,null);
+            usuario.moveToFirst();
+            nombreUsuario.setText(usuario.getString(0));
+            try {
+                Cursor contraseña =db.query(Utilidades.TABLA_USUARIO,campos,Utilidades.KEY_USUARIO_CONTRASEÑA+"=?",parametros,null,null,null);
+                contraseña.move(1);
+                nombreUsuario.setText(contraseña.getString(1));
+                usuario.close();
+                contraseña.close();
 
-            Intent i = new Intent(this, UsuarioAc.class);
-            i.putExtra("nombre", nombreUsuario.getText().toString());
-            startActivity(i);
+                Intent i = new Intent(this, UsuarioAc.class);
+                i.putExtra("nombre", nombreUsuario.getText().toString());
+                startActivity(i);
+            }
+            catch (Exception e){
+                Toast.makeText(getApplicationContext(),"La contraseña esta incorrecta",Toast.LENGTH_LONG).show();
+                limpiar();
+            }
+
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),"El usuario no existe",Toast.LENGTH_LONG).show();
             limpiar();
@@ -80,6 +85,7 @@ public class Login extends AppCompatActivity {
 
 
     }*/
+
     //METODO QUE LIMPIA LOS CAMPOS DE ENTRADA DE TEXTO DEL LOGIN
     private void limpiar() {
         nombreUsuario.setText("");
