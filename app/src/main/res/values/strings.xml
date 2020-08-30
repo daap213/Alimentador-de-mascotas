@@ -38,5 +38,7 @@
     <string name="edad_en_a_os">Edad (en años)</string>
     <string name="tama_o_en_cm">Tamaño (en cm)</string>
     <string name="ver_lista_de_usuarios_registrados">Ver Lista de usuarios registrados</string>
+    <string name="correo">Correo</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
 
 </resources>
