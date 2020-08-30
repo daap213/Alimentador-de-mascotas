@@ -47,13 +47,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/spinnerdueño"
+        android:id="@+id/spinnerTamaño"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="404dp"
+        android:layout_marginBottom="464dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -70,15 +70,15 @@
         app:layout_constraintTop_toTopOf="parent"
         android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/tamaño"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/tama_o_en_cm"
-        android:inputType="numberDecimal"
+        android:layout_marginTop="28dp"
+        android:text="Seleccione un Tamaño"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerTamaño"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/raza" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
