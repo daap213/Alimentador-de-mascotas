@@ -5,6 +5,7 @@ public class Utilidades {
     //NOMBRES DE LAS TABLAS
     public static final String TABLA_USUARIO= "usuario";
     public static final String TABLA_MASCOTA= "mascota";
+    public static final String TABLA_HORARIO= "horario";
 
     //COLUMNAS DE LA TABLA DE USUARIO
     public static final String KEY_USUARIO_ID= "id";
