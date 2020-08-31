@@ -69,20 +69,20 @@ public class RegistroMascota extends AppCompatActivity {
 
         SQLiteDatabase db=admin.getWritableDatabase();
 
-        ContentValues values=new ContentValues();
-        values.put(Utilidades.KEY_MASCOTA_NOMBRE,nombreMascota.getText().toString());
-        values.put(Utilidades.KEY_RAZA,razaMascota.getText().toString());
-        values.put(Utilidades.KEY_MASCOTA_EDAD,edadMascota.getText().toString());
-
         int position= (int)spinnerTamaño.getSelectedItemId();
         /**
-         * Valida la seleccion del combo de los tamaños, si el usuario elige "seleccione" entonces
-         * se retorna el id 0 ya que la palabra "seleccione" se encuentra en la pos 0 del combo,
-         * sinó entonces se retorna la posicion del combo para consultar el usuario almacenado en la lista
+         * Valida la seleccion del combo de los tamaños, si el usuario elige "seleccione tamaño" entonces
+         * se retorna el id 0 ya que la palabra "seleccione tamaño" se encuentra en la pos 0 del spinner,
+         * caso contrario se retorna la posicion del spinner para consultar el usuario almacenado en la lista
          */
 
         if (position!=0){
             String tamañoEscogido= tamañosList.get(position-1).toString();
+            ContentValues values=new ContentValues();
+            values.put(Utilidades.KEY_MASCOTA_NOMBRE,nombreMascota.getText().toString());
+            values.put(Utilidades.KEY_RAZA,razaMascota.getText().toString());
+            values.put(Utilidades.KEY_MASCOTA_EDAD,edadMascota.getText().toString());
+
             values.put(Utilidades.KEY_TAMAÑO,tamañoEscogido );
             //Long tamañoEscogido=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.KEY_TAMAÑO,values);
             Toast.makeText(getApplicationContext(),"Su Mascota: "+nombreMascota.getText().toString()+" se registró con éxito",Toast.LENGTH_SHORT).show();
