@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.time.DateTimeException;
 
 public class Horario implements Serializable {
-    private DateTimeException hora; // no se si ese tipo de variable sea el q se necesita o el DATE de SQL
+    private Integer id;
+    private String hora; // no se si ese tipo de variable sea el q se necesita o el DATE de SQL
     private String descripcion;
     private Integer iDUsuario;
     private ToneGenerator Tono;
@@ -14,18 +15,26 @@ public class Horario implements Serializable {
     public Horario(){
     }
 
-    public Horario(DateTimeException hora, String descripcion, Integer iDUsuario, ToneGenerator tono) {
+    public Horario(Integer id, String hora, String descripcion, Integer iDUsuario, ToneGenerator tono) {
+        this.id = id;
         this.hora = hora;
         this.descripcion = descripcion;
         this.iDUsuario = iDUsuario;
         Tono = tono;
     }
+    public Integer getId() {
+        return id;
+    }
 
-    public DateTimeException getHora() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(DateTimeException hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

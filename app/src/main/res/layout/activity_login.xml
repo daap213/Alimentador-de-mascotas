@@ -1,51 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/nom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="684dp"
         android:ems="10"
         android:hint="@string/nombre_de_usuario"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:labelFor="@id/contr"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:labelFor="@id/contr" />
 
     <EditText
         android:id="@+id/contr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="600dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/contrase_a"
         android:inputType="textPassword"
-        android:labelFor="@id/nom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom" />
+        android:labelFor="@id/nom" />
 
     <Button
         android:id="@+id/ingresarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
         android:onClick="Ingresar"
-        android:text="@string/ingresar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contr" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/ingresar" />
+
+</LinearLayout>

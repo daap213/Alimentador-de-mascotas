@@ -26,6 +26,7 @@ public class Utilidades {
     public static final String KEY_TAMAÑO="tamaño";
 
     //COLUMNAS DE LA TABLA DE HORARIO
+    public static final String KEY_HORARIO_ID= "id";
     public static final String KEY_HORARIO_HORA= "hora";
     public static final String KEY_HORARIO_DESCRIPCION= "descripcion";
     public static final String KEY_HORARIO_IDUSUARIO= "idUsuario";
@@ -52,7 +53,8 @@ public class Utilidades {
             KEY_TAMAÑO+ " INTEGER)";
 
     public static final String CREAR_TABLA_HORARIO="CREATE TABLE " +
-            ""+TABLA_HORARIO+" ("+KEY_HORARIO_HORA+ " DATE,"+
+            ""+TABLA_HORARIO+" ("+KEY_HORARIO_ID + " "+
+            "INTEGER PRIMARY KEY AUTOINCREMENT,"+KEY_HORARIO_HORA+ " VARCHAR,"+
             KEY_HORARIO_DESCRIPCION + " VARCHAR," +
             KEY_HORARIO_IDUSUARIO+ " INTEGER REFERENCES "+ TABLA_USUARIO+","+
             KEY_HORARIO_TONO+ " VARCHAR)";//NO SE SI ESTE ESTE BIEN, EL VARCHAR

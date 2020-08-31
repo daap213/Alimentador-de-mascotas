@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Proyecto</string>
+    <string name="changed_to">Notificación cambiada a las %s</string>
+    <string name="time_selected_is">La hora seleccionada es:</string>
+    <string name="change_time">Agregar hora</string>
+    <string name="select_time">Selecciona la hora</string>
+    <string name="new_notification">Es hora de darle de comer a tu amigo!!!</string>
+    <string name="app_name">Pet friend</string>
     <string name="name">Name</string>
     <string name="ingresar">Ingresar</string>
     <string name="registro">registro</string>

@@ -24,12 +24,16 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Utilidades.CREAR_TABLA_MASCOTA);
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
+        db.execSQL(Utilidades.CREAR_TABLA_HORARIO);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_USUARIO);
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_MASCOTA);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_HORARIO);
+
         onCreate(db);
     }
 
