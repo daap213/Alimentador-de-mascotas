@@ -40,7 +40,7 @@ public class RegistroMascota extends AppCompatActivity {
         spinnerTamaño= (Spinner) findViewById(R.id.spinnerTamaño);//para escoger el tamaño de la mascota
 
         admin=new AdminSQLiteOpenHelper(getApplicationContext(),"PST_G6",null,1);
-        tamañosList.add("");
+        tamañosList.add("Seleccione un tamaño");
         tamañosList.add("Pequeño");
         tamañosList.add("Mediano");
         tamañosList.add("Grande");

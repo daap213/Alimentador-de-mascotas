@@ -3,8 +3,10 @@ package com.example.proyecto.entidades;
 import java.io.Serializable;
 
 public class Mascota implements Serializable {
-    private Integer idUsuario;
+
     private Integer idMascota;
+    private Usuario dueño;
+    private Integer idUsuario;
     private String nombreMascota;
     private String raza;
     private Integer edad;
@@ -13,7 +15,7 @@ public class Mascota implements Serializable {
     public Mascota() {
     }
 
-    public Mascota(Integer idUsuario, Integer idMascota, String nombreMascota, String raza, Integer edad, String tamaño) {
+    public Mascota(Integer idMascota, Integer idUsuario, String nombreMascota, String raza, Integer edad, String tamaño) {
         this.idUsuario = idUsuario;
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;

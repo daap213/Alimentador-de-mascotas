@@ -30,7 +30,7 @@
         android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/nombre"
+        android:hint="@string/nombres_completos"
         android:inputType="textPersonName"
         android:labelFor="@id/contraseña"
         android:textSize="18sp" />
