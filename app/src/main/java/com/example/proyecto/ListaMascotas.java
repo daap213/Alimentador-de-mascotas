@@ -22,7 +22,7 @@ import java.util.List;
 class ListaMascotas extends AppCompatActivity {
    TextView nombreMas,edadMas,razaMas,tamañoMas;
     Spinner spinnerMascota;
-    List tamañosList = new ArrayList( );
+
 
     ArrayList<String> listaInformacion;
     ArrayList<Mascota> listaMascotas; //Se almacenan las mascotas de tipo Mascotas
