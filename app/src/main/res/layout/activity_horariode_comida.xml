@@ -7,7 +7,7 @@
     android:padding="20dp">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/time_selected_is"
@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/change_notification"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
@@ -44,11 +44,11 @@
         android:onClick="agregarUsuario"
         android:text="@string/change_time"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
@@ -56,7 +56,7 @@
         android:onClick="eliminarUsuario"
         android:text="Eliminar hora"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <ListView
         android:id="@+id/ListaHora"
