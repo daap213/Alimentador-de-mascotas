@@ -10,76 +10,84 @@
         android:id="@+id/nombreMascota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="656dp"
+        android:layout_marginTop="70dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/nombre_de_la_mascota"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/raza"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="516dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/raza"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edadMascota" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/raza">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/seleccione_un_tama_o"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTamaño"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/registroMascota2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="292dp"
+        android:layout_marginTop="20dp"
         android:onClick="onClick"
         android:text="@string/a_adir_mascota"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinnerTamaño"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="488dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raza"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraint_toBottomOf="@+id/linearLayout4" />
 
     <EditText
         android:id="@+id/edadMascota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/edad_en_a_os"
         android:inputType="numberDecimal"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreMascota" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/seleccione_un_tama_o"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerTamaño"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raza" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

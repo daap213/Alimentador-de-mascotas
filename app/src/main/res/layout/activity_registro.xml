@@ -11,72 +11,96 @@
         android:id="@+id/nombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/nombre_de_usuario"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/nombre"
         android:inputType="textPersonName"
-        android:labelFor="@id/contraseña" />
+        android:labelFor="@id/contraseña"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/contrase_a"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/ubicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/ubicacion"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/telefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/tel_fono"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/correo"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:onClick="Registrar"
-        android:text="@string/registrar" />
+        android:text="@string/registrar"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:onClick="Volver"
-        android:text="@string/volver" />
+        android:text="@string/volver"
+        android:textSize="18sp" />
 
 </LinearLayout>

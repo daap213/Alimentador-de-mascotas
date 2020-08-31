@@ -42,7 +42,7 @@
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="edad_en_a_os">Edad (en años)</string>
     <string name="tama_o_en_cm">Tamaño (en cm)</string>
-    <string name="ver_lista_de_usuarios_registrados">Ver Lista de usuarios registrados</string>
+    <string name="ver_lista_de_usuarios_registrados"> Ver Lista de usuarios </string>
     <string name="correo">Correo</string>
     <string name="nombre_de_usuario">Nombre de usuario</string>
     <string name="nombreusuario">NombreUsuario</string>
@@ -62,6 +62,6 @@
     <string name="nombre_de_mascota">Nombre de mascota</string>
     <string name="due_o">Dueño</string>
     <string name="id_del_due_o">Id del dueño</string>
-    <string name="tama_o_d_la_mascota">Tamaño d la mascota</string>
+    <string name="tama_o_d_la_mascota">Tamaño de la mascota</string>
 
 </resources>

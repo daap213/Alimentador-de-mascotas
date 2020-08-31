@@ -10,69 +10,59 @@
         android:id="@+id/idUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/iduser"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/nombres"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombreUsuario"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreUsuario" />
 
     <TextView
         android:id="@+id/tvTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/telefonoo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUbicacion"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUbicacion" />
 
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/email"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvContraseña"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintTop_toBottomOf="@+id/tvContraseña" />
 
     <TextView
         android:id="@+id/tvUbicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginTop="15dp"
         android:text="@string/ubicacionn"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
@@ -80,9 +70,11 @@
         android:id="@+id/tvNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/nombreusuario"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idUser" />
 
@@ -90,9 +82,11 @@
         android:id="@+id/tvContraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="@string/contrase_a"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 

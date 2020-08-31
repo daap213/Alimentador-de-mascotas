@@ -4,60 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/petfeederf"
+
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/registrarseInicio"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:shadowColor="#9C27B0"
-        android:text="@string/registrarse"
-        android:textColor="#673AB7"
-        android:textColorHighlight="#9C27B0"
-        android:textColorHint="#3F51B5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="351dp"
-        android:layout_height="452dp"
-        android:background="#FFFFFF"
-        android:contentDescription="@string/portada"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ConsultaListaUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222"
-        app:srcCompat="@drawable/petfeederf" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/loginUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:onClick="onClick"
-        android:text="@string/iniciar_sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/registrarseInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="50dp"
+            android:onClick="onClick"
+            android:text="@string/registrarse" />
+
+        <Button
+            android:id="@+id/loginUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="60dp"
+            android:onClick="onClick"
+            android:text="@string/iniciar_sesion" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/ConsultaListaUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:onClick="onClick"
         android:text="@string/ver_lista_de_usuarios_registrados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
