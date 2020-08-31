@@ -41,13 +41,15 @@
                     android:id="@+id/comida"
                     android:layout_width="182dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/efectobtn" />
+                    android:background="@drawable/efectobtn"
+                    android:onClick="onClick" />
 
                 <Button
                     android:id="@+id/agua"
                     android:layout_width="173dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/efectobtn_ag" />
+                    android:background="@drawable/efectobtn_ag"
+                    android:onClick="onClick" />
             </TableRow>
 
             <TableRow
@@ -73,6 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:onClick="onClick"
                     android:text="@string/ver_mis_mascotas" />
             </TableRow>
 

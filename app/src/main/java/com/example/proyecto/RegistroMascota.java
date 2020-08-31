@@ -47,6 +47,7 @@ public class RegistroMascota extends AppCompatActivity {
 
         //consultarListaUsuarios();
 
+        //Adapatador necesario para el spinner del tamaño
         ArrayAdapter<CharSequence> adaptador=new ArrayAdapter
                 (this,android.R.layout.simple_spinner_item,tamañosList);
 
@@ -73,13 +74,26 @@ public class RegistroMascota extends AppCompatActivity {
         values.put(Utilidades.KEY_RAZA,razaMascota.getText().toString());
         values.put(Utilidades.KEY_MASCOTA_EDAD,edadMascota.getText().toString());
 
-        int idCombo= (int)spinnerTamaño.getSelectedItemId();
+        int position= (int)spinnerTamaño.getSelectedItemId();
         /**
          * Valida la seleccion del combo de los tamaños, si el usuario elige "seleccione" entonces
          * se retorna el id 0 ya que la palabra "seleccione" se encuentra en la pos 0 del combo,
          * sinó entonces se retorna la posicion del combo para consultar el usuario almacenado en la lista
          */
-        if (idCombo!=0){
+
+        if (position!=0){
+            String tamañoEscogido= tamañosList.get(position-1).toString();
+            values.put(Utilidades.KEY_TAMAÑO,tamañoEscogido );
+            //Long tamañoEscogido=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.KEY_TAMAÑO,values);
+            Toast.makeText(getApplicationContext(),"Su Mascota: "+nombreMascota.getText().toString()+" se registró con éxito",Toast.LENGTH_SHORT).show();
+            db.close();
+            limpiar();
+
+        }else{
+            Toast.makeText(getApplicationContext(),"Debe seleccionar un Tamaño",Toast.LENGTH_LONG).show();
+        }
+
+      /*  if (idCombo!=0){
             Log.i("TAMAÑO",tamañosList.size()+"");
             Log.i("id combo",idCombo+"");
             Log.i("id combo - 1",(idCombo-1)+"");//se resta 1 ya que se quiere obtener la posicion de la lista, no del combo
@@ -96,7 +110,7 @@ public class RegistroMascota extends AppCompatActivity {
 
         }else{
             Toast.makeText(getApplicationContext(),"Debe seleccionar un Tamaño",Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
 
 

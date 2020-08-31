@@ -19,11 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class ListaMascotas extends AppCompatActivity {
-   TextView nombreMas,edadMas,razaMas,tamañoMas;
+public class ListaMascotas extends AppCompatActivity {
+    TextView nombreMas,edadMas,razaMas,tamañoMas;
     Spinner spinnerMascota;
-
-
     ArrayList<String> listaInformacion;
     ArrayList<Mascota> listaMascotas; //Se almacenan las mascotas de tipo Mascotas
 

@@ -46,6 +46,8 @@ public class UsuarioAc extends AppCompatActivity {
 
         btn1= (Button)findViewById(R.id.comida);
         btn2= (Button)findViewById(R.id.agua);
+
+
         //txtresultado=(TextView)findViewById(R.id.txtResultado);
         //solicitud();
         handler.postDelayed(actualizacion,0);
@@ -74,7 +76,7 @@ public class UsuarioAc extends AppCompatActivity {
                 miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
             case R.id.verMascota:
-                miIntent=new Intent(UsuarioAc.this, ListaMascota.class);
+                miIntent=new Intent(UsuarioAc.this,ListaMascotas.class);
                 break;
             case R.id.actualizarDatos:
                 miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
