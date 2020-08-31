@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void onClick(View view) {
+   public void onClick(View view) {
         Intent miIntent=null;
         switch (view.getId()){
             case R.id.registrarseInicio:
@@ -29,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.loginUsuario:
                 miIntent=new Intent(MainActivity.this,Login.class);
                 break;
-            case R.id.ConsultaListaMascota:
-                miIntent=new Intent(MainActivity.this,ConsultarListaMascotas.class);
+            case R.id.ConsultaListaUsuario:
+                miIntent=new Intent(MainActivity.this, ConsultarListaPersonas.class);
                 break;
 
         }
         if (miIntent!=null){
             startActivity(miIntent);
         }
-    }
-}
+
+}}

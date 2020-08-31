@@ -18,7 +18,7 @@ import com.example.proyecto.utilidades.Utilidades;
 
 import java.util.ArrayList;
 
-public class ConsultarListaMascotas extends AppCompatActivity {
+public class ConsultarListaPersonas extends AppCompatActivity {
 
     ListView listViewPersonas;
     ArrayList<String> listaInformacion;
@@ -44,7 +44,9 @@ public class ConsultarListaMascotas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
-                informacion+="Nombre: "+listaUsuarios.get(pos).getNombre()+"\n";
+                informacion+="Nombre de Usuario: "+listaUsuarios.get(pos).getNombreUsuario()+"\n";
+                informacion+="Nombres: "+listaUsuarios.get(pos).getNombres()+"\n";
+                informacion+="Contraseña: "+listaUsuarios.get(pos).getContraseña()+"\n";
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
                 informacion+="Correo: "+listaUsuarios.get(pos).getCorreo()+"\n";
                 informacion+="Ubicación: "+listaUsuarios.get(pos).getUbicacion()+"\n";
@@ -52,7 +54,7 @@ public class ConsultarListaMascotas extends AppCompatActivity {
 
                 Usuario user=listaUsuarios.get(pos);
 
-                Intent intent=new Intent(ConsultarListaMascotas.this,DetallesdelUsuario.class);
+                Intent intent=new Intent(ConsultarListaPersonas.this,DetallesdelUsuario.class);
 
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("usuario",user);
@@ -65,31 +67,34 @@ public class ConsultarListaMascotas extends AppCompatActivity {
 
     }
 
-    private void consultarListaPersonas() {
+    public void consultarListaPersonas() {
         SQLiteDatabase db=admin.getReadableDatabase();
 
         Usuario usuario=null;
         listaUsuarios=new ArrayList<Usuario>();
-        //select * from usuarios
         Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_USUARIO,null);
 
         while (cursor.moveToNext()){
             usuario=new Usuario();
             usuario.setId(cursor.getInt(0));
-            usuario.setNombre(cursor.getString(1));
-            usuario.setTelefono(cursor.getString(2));
+            usuario.setNombreUsuario(cursor.getString(1));
+            usuario.setNombres(cursor.getString(2));
+            usuario.setContraseña(cursor.getString(3));
+            usuario.setCorreo(cursor.getString(4));
+            usuario.setUbicacion(cursor.getString(5));
+            usuario.setTelefono(cursor.getString(6));
 
             listaUsuarios.add(usuario);
         }
         obtenerLista();
     }
 
-    private void obtenerLista() {
+    public void obtenerLista() {
         listaInformacion=new ArrayList<String>();
 
         for (int i=0; i<listaUsuarios.size();i++){
             listaInformacion.add(listaUsuarios.get(i).getId()+" - "
-                    +listaUsuarios.get(i).getNombre());
+                    +listaUsuarios.get(i).getNombreUsuario());
         }
 
     }

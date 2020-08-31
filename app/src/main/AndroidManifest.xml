@@ -11,8 +11,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".RegistroMascota"/>
         <activity android:name=".RegistroUsuario"/>
-        <activity android:name=".ConsultarListaMascotas"/>
         <activity android:name=".UsuarioAc"/>
+        <activity android:name=".HorariodeComida"/>
+        <activity android:name=".DetalleMascotas"/>
+        <activity android:name=".ConsultarListaPersonas"/>
+        <activity android:name=".ActualizarUsuario"/>
         <activity android:name=".Login"/>
         <activity android:name=".DetallesdelUsuario"/>
         <activity android:name=".MainActivity">
@@ -22,6 +25,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name="com.example.proyecto.entidades.AlarmReceiver"
+            android:enabled="true" />
+
+        <service
+            android:name="com.example.proyecto.entidades.NotificationService"
+            android:enabled="true" />
+
+        <service android:name="com.example.proyecto.entidades.RebootServiceClass"/>
+
+        <receiver android:name="com.example.proyecto.entidades.MyRebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
