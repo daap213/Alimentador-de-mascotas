@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proyecto.R;
 import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
 import com.example.proyecto.entidades.Mascota;
 import com.example.proyecto.utilidades.Utilidades;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 
                 Mascota mascota=listaMascotas.get(pos);
 
-                Intent intent=new Intent(ListaMascota.this,DetalleMascotas.class);
+                Intent intent=new Intent(ListaMascota.this, DetalleMascotas.class);
 
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("mascota",mascota);

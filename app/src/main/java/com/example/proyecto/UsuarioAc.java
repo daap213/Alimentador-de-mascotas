@@ -2,13 +2,11 @@ package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +40,7 @@ public class UsuarioAc extends AppCompatActivity {
                 miIntent=new Intent(UsuarioAc.this,RegistroMascota.class);
                 break;
             case R.id.verMascota:
-                miIntent=new Intent(UsuarioAc.this,ListaMascota.class);
+                miIntent=new Intent(UsuarioAc.this, ListaMascota.class);
                 break;
             case R.id.actualizarDatos:
                 miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
