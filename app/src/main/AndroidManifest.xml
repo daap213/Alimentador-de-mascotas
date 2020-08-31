@@ -17,6 +17,7 @@
         <activity android:name=".HorariodeComida"/>
         <activity android:name=".DetalleMascotas"/>
         <activity android:name=".ConsultarListaPersonas"/>
+        <activity android:name=".ListaMascotas"/>
         <activity android:name=".ActualizarUsuario"/>
         <activity android:name=".Login"/>
         <activity android:name=".DetallesdelUsuario"/>
