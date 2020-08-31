@@ -24,16 +24,12 @@ public class UsuarioAc extends AppCompatActivity {
     private TextView bienvenida;
     private String nombreUsuario;
     AdminSQLiteOpenHelper admin;
-
-
     Button btn1;
     Button btn2;
     TextView txtresultado;
     boolean servo1= false;
     boolean servo2= false;
     final Handler handler = new Handler();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,22 +136,21 @@ public class UsuarioAc extends AppCompatActivity {
         //@Override
         protected void onPostExecute(String result) {
             if(result!= null){
-
+                if(result.contains("Switch ON - Pin2") && servo1==true){
+                    //btn1.setText("ACTIVADO");
+                    System.out.println("hola1");
+                    servo1= false;
+                    //handler.postDelayed(actualizacion,0);
+                }
+                if (result.contains("Switch ON - Pin3") && servo2==true){
+                    //btn2.setText("ACTIVADO");
+                    System.out.println("hola2");
+                    servo2= false;
+                    //handler.postDelayed(actualizacion,0);
+                }else {
+                    //txtresultado.setText("Conexion a la red");
+                }
             }   //txtresultado.setText(result);
-            if(result.contains("Switch ON - Pin2") && servo1==true){
-                //btn1.setText("ACTIVADO");
-                System.out.println("hola1");
-                servo1= false;
-                //handler.postDelayed(actualizacion,0);
-            }
-            if (result.contains("Switch ON - Pin3") && servo2==true){
-                //btn2.setText("ACTIVADO");
-                System.out.println("hola2");
-                servo2= false;
-                //handler.postDelayed(actualizacion,0);
-            }else {
-                //txtresultado.setText("Conexion a la red");
-            }
         }
     }
 }
