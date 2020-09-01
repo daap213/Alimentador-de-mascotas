@@ -1,5 +1,6 @@
 package com.example.proyecto;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyecto.entidades.AdminSQLiteOpenHelper;
 import com.example.proyecto.entidades.Mascota;
+import com.example.proyecto.entidades.Usuario;
 import com.example.proyecto.utilidades.Utilidades;
 
 import java.util.ArrayList;
@@ -58,6 +60,17 @@ public class ListaMascotas extends AppCompatActivity {
                     edadMas.setText(listaMascotas.get(position-1).getEdad());
                     razaMas.setText(listaMascotas.get(position-1).getRaza());
                     tamañoMas.setText(listaMascotas.get(position-1).getTamaño());
+
+                    Mascota mascota=listaMascotas.get(position);
+
+                    Intent intent=new Intent(ListaMascotas.this,DetalleMascotas.class);
+                    Bundle bundle=new Bundle();
+                    bundle.putSerializable("mascota",mascota);
+
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+
+
                 }else{
                     nombreMas.setText("");
                     edadMas.setText("");
@@ -74,7 +87,7 @@ public class ListaMascotas extends AppCompatActivity {
 
     }
 
-    private void consultarListaMascotas() { //Metodo que consulta toda la base de datos de la TABLA MASCOTA
+    public void consultarListaMascotas() { //Metodo que consulta toda la base de datos de la TABLA MASCOTA
         SQLiteDatabase db=admin.getReadableDatabase();
 
         Mascota mascota=null;
@@ -96,7 +109,7 @@ public class ListaMascotas extends AppCompatActivity {
         obtenerLista();
     }
 
-    private void obtenerLista() {
+    public void obtenerLista() {
         listaInformacion=new ArrayList<String>();
         listaInformacion.add("Seleccione una Mascota");
         for (int i=0; i<listaMascotas.size();i++){
