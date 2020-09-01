@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import static android.view.View.*;
-
+//Ventana que permite manejar a que hora se desea las notificaciones
 public class HorariodeComida extends AppCompatActivity {
     private TextView notificationsTime;
     private int alarmID=1;
@@ -43,6 +43,7 @@ public class HorariodeComida extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Se declaran las variables
         setContentView(R.layout.activity_horariode_comida);
         settings = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
 
@@ -56,19 +57,9 @@ public class HorariodeComida extends AppCompatActivity {
         String hour, minute;
         hour = settings.getString("hour", "");
         minute = settings.getString("minute", "");
-
-
-
-        /*findViewById(R.id.change_notification).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-        });*/
-
+        //Se revisa si ya existen alarmas para poder mostrarlas en la misma ventana
         consultarListahoras();
-
+        //Crea un arreglo que mostrara informacion de cada alarma
         ArrayAdapter adaptador=new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
         listaH.setAdapter(adaptador);
         listaH.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,7 +72,7 @@ public class HorariodeComida extends AppCompatActivity {
     }
 
     private void consultarListahoras() {
-
+//Se lee la base de datos y se consulta que horas hay existentes
         SQLiteDatabase db=admin.getReadableDatabase();
         Horario hora =null;
         listahora =new ArrayList<Horario>();
@@ -99,6 +90,7 @@ public class HorariodeComida extends AppCompatActivity {
         obtenerLista();
     }
     public void obtenerLista() {
+        //Se crea una lista con informacion sobre la alarma
         listaInformacion = new ArrayList<String>();
 
         for (int i = 0; i < listahora.size(); i++) {
@@ -106,8 +98,7 @@ public class HorariodeComida extends AppCompatActivity {
         }
     }
     public void eliminarUsuario(View view) {
-
-
+        //Se elimina la alarma que el usuario haya escogido , y se vuelve a cargar el activity para mostrar el cambio
         SQLiteDatabase db=admin.getWritableDatabase();
         String[] parametros={notificationsTime.getText().toString()};
 
@@ -117,7 +108,7 @@ public class HorariodeComida extends AppCompatActivity {
         cargar();
     }
     public void agregarUsuario(View view) {
-
+        //Utiliza la clase calendar para poder mostrar y obterner hora y minutos que se desea la alarma
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
@@ -126,7 +117,7 @@ public class HorariodeComida extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 String finalHour, finalMinute="0";
-
+                //Se obtienen las variables del tiempo y se procede a mostrarla
                 finalHour = "" + selectedHour;
                 finalMinute = "" + selectedMinute;
                 if (selectedHour < 10) finalHour = "0" + selectedHour;
@@ -143,12 +134,12 @@ public class HorariodeComida extends AppCompatActivity {
                 edit.putString("hour", finalHour);
                 edit.putString("minute", finalMinute);
 
-                //SAVE ALARM TIME TO USE IT IN CASE OF REBOOT
+                //Se guarda la hora seleccionada para que se cree la alarma si se reinicia el sistema
                 edit.putInt("alarmID", alarmID);
                 edit.putLong("alarmTime", today.getTimeInMillis());
 
                 edit.commit();
-
+                //Se guarda la alarma en la base de datos
                 SQLiteDatabase db= admin.getWritableDatabase();
 
                 ContentValues values=new ContentValues();
@@ -160,7 +151,7 @@ public class HorariodeComida extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Alarma registrada "+idResultante+"\nHora: "+finalHour + ":" + finalMinute,Toast.LENGTH_SHORT).show();
                 db.close();
-
+                //Se programa la notificacion acorde la alarma
                 Utils.setAlarm(alarmID, today.getTimeInMillis(), HorariodeComida.this);
                 if (finalHour != "0" && finalMinute != "0"){
                     cargar();
@@ -172,11 +163,8 @@ public class HorariodeComida extends AppCompatActivity {
         mTimePicker.show();
 
     }
-    private void limpiar() {
-        notificationsTime.setText("");
-        descripcion.setText("");
-    }
     private void cargar() {
+        //Vuelve a cargar el activity para que se muestre los cambios
         overridePendingTransition(0, 0);
         finish();
         overridePendingTransition(0, 0);

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
-
+//Crea una alarma y cuando salte el evento llama a la notificación
 public class AlarmReceiver extends BroadcastReceiver {
 
     @Override

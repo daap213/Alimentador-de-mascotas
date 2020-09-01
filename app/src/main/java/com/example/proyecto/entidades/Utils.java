@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 import static android.content.Context.ALARM_SERVICE;
-
+//Guarda la alarma en AlarmaManager
 public class Utils {
 
     public static void setAlarm(int i, Long timestamp, Context ctx) {
