@@ -21,6 +21,7 @@ import com.example.proyecto.utilidades.Utilidades;
 
 public class UsuarioAc extends AppCompatActivity {
 
+    //Se crean las diferentes variables de estado de la actividad
     private TextView bienvenida;
     private String nombreUsuario;
     AdminSQLiteOpenHelper admin;
@@ -43,13 +44,16 @@ public class UsuarioAc extends AppCompatActivity {
        bienvenida.setText("Bienvenid@ "+bundle.getString("nombre"));
 
        nombreUsuario=bundle.getString("nombre");//BORRAR ESTA LINES Si se eliminan los botones d actualizar Datos d usuario
-
+        //Se instancian los botonees creados en el XML
         btn1= (Button)findViewById(R.id.comida);
         btn2= (Button)findViewById(R.id.agua);
         //txtresultado=(TextView)findViewById(R.id.txtResultado);
         //solicitud();
+        //Comando para actualizar la aplicacion y el localhost
         handler.postDelayed(actualizacion,0);
 
+        //se crea la acciones de los botones
+        //asiganciones de valor a el contrsuctor del metodo solicitud
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,20 +109,23 @@ public class UsuarioAc extends AppCompatActivity {
         startActivity(i);
     }
 
+    //Metodo creado para la conectividad con las diferentes extensiones web que posee el localhost
     public void solicitud(String comando){
-
+        //Se conecta al servidor
         ConnectivityManager connMgr= (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
+        //Nombre de la ip mas la extension del localhost
         String url= "http://192.168.0.20/"+comando;
         if(networkInfo != null && networkInfo.isConnected()) {
+            //Conexion directa a la extension
             new DownloadWebpageTask().execute(url);
         }else{
             //txtresultado.setText("Conexion detectada");
         }
-        //networkInfo= null;
-        //connMgr= null;
     }
+
+    //Hilo que actualiza la aplicacion cada 2 segundo
     private Runnable actualizacion= new Runnable() {
         @Override
         public void run() {
@@ -126,6 +133,8 @@ public class UsuarioAc extends AppCompatActivity {
             handler.postDelayed(this, 2000);
         }
     };
+
+    //metodo que permite crear la conexion directa desde la clase Conexion
     private class DownloadWebpageTask extends AsyncTask<String,Void,String> {
         @Override
         protected String doInBackground(String... urls) {
