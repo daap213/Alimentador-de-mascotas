@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.proyecto.R;
-
+//Revisa la hora de la alarma para poder leer a que hora debe sonar y activarla cuando se dispare el evento
 public class RebootServiceClass extends IntentService {
     public RebootServiceClass(String name) {
         super(name);
@@ -24,6 +24,7 @@ public class RebootServiceClass extends IntentService {
     }
 
     @Override
+    //Cuando obtiene el extra y es el Rebootreceiver, va a leer el id de la alarma y su hora y reguardarla
     protected void onHandleIntent(Intent intent) {
         String intentType = intent.getExtras().getString("caller");
         if (intentType == null) return;

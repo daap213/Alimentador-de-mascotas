@@ -18,7 +18,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.example.proyecto.HorariodeComida;
 import com.example.proyecto.R;
-
+//Muestra la notificacion en la barra de tareas, cuando según la hora establecida
 public class NotificationService extends IntentService {
 
     private NotificationManager notificationManager;
@@ -59,12 +59,14 @@ public class NotificationService extends IntentService {
             }
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel mChannel = notifManager.getNotificationChannel(id);
+            //Se encarga de dar un patron de vibración a la notificación
             if (mChannel == null) {
                 mChannel = new NotificationChannel(id, title, importance);
                 mChannel.enableVibration(true);
                 mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
                 notifManager.createNotificationChannel(mChannel);
             }
+            //Se crea el mensaje a mostrar en la notificacion y un icono
             builder = new NotificationCompat.Builder(context, id);
             mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, mIntent, PendingIntent.FLAG_UPDATE_CURRENT);
