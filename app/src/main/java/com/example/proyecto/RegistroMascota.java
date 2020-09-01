@@ -25,7 +25,7 @@ public class RegistroMascota extends AppCompatActivity {
     EditText razaMascota,nombreMascota, edadMascota;
     Spinner spinnerTamaño;
     List tamañosList = new ArrayList( );
-
+    String tamañoEscogido;
 
     AdminSQLiteOpenHelper admin;
 
@@ -45,8 +45,7 @@ public class RegistroMascota extends AppCompatActivity {
         tamañosList.add("Mediano");
         tamañosList.add("Grande");
 
-        //consultarListaUsuarios();
-
+        registrarMascota();
         //Adapatador necesario para el spinner del tamaño
         ArrayAdapter<CharSequence> adaptador=new ArrayAdapter
                 (this,android.R.layout.simple_spinner_item,tamañosList);
@@ -54,8 +53,10 @@ public class RegistroMascota extends AppCompatActivity {
         spinnerTamaño.setAdapter(adaptador);
 
         spinnerTamaño.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            //Este método es solo para seleccionar el tamaño y registrarlo
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long idl) {
+
             }
 
             @Override
@@ -65,30 +66,30 @@ public class RegistroMascota extends AppCompatActivity {
 
     }
     //Este metodo falta mejorarlo, no lo borren
-    private void registrarMascota() {
+    public void registrarMascota() {
 
         SQLiteDatabase db=admin.getWritableDatabase();
 
-        int position= (int)spinnerTamaño.getSelectedItemId();
+        ContentValues values=new ContentValues();
+        values.put(Utilidades.KEY_RAZA,nombreMascota.getText().toString());
+        values.put(Utilidades.KEY_RAZA,razaMascota.getText().toString());
+        values.put(Utilidades.KEY_MASCOTA_EDAD,edadMascota.getText().toString());
+
         /**
          * Valida la seleccion del combo de los tamaños, si el usuario elige "seleccione tamaño" entonces
          * se retorna el id 0 ya que la palabra "seleccione tamaño" se encuentra en la pos 0 del spinner,
          * caso contrario se retorna la posicion del spinner para consultar el usuario almacenado en la lista
          */
+        int position= (int) spinnerTamaño.getSelectedItemId();
 
         if (position!=0){
-            String tamañoEscogido= tamañosList.get(position-1).toString();
-            ContentValues values=new ContentValues();
-            values.put(Utilidades.KEY_MASCOTA_NOMBRE,nombreMascota.getText().toString());
-            values.put(Utilidades.KEY_RAZA,razaMascota.getText().toString());
-            values.put(Utilidades.KEY_MASCOTA_EDAD,edadMascota.getText().toString());
+            tamañoEscogido= tamañosList.get(position-1).toString();
+            System.out.println(tamañoEscogido);
+            values.put(Utilidades.KEY_TAMAÑO,tamañoEscogido);
 
-            values.put(Utilidades.KEY_TAMAÑO,tamañoEscogido );
-            //Long tamañoEscogido=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.KEY_TAMAÑO,values);
+            Long idResultante=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.KEY_MASCOTA_ID,values);
             Toast.makeText(getApplicationContext(),"Su Mascota: "+nombreMascota.getText().toString()+" se registró con éxito",Toast.LENGTH_SHORT).show();
             db.close();
-            limpiar();
-
         }else{
             Toast.makeText(getApplicationContext(),"Debe seleccionar un Tamaño",Toast.LENGTH_LONG).show();
         }
