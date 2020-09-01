@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         consultarUsuario();
     }
 
-
+    //Método que Valida el login
     private void consultarUsuario() {
         SQLiteDatabase db=admin.getReadableDatabase();
         String[] parametros={nombreUsuario.getText().toString()};

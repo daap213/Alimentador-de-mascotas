@@ -43,14 +43,14 @@ public class ConsultarListaPersonas extends AppCompatActivity {
         listViewPersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
+              /*  String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
                 informacion+="Nombre de Usuario: "+listaUsuarios.get(pos).getNombreUsuario()+"\n";
                 informacion+="Nombres: "+listaUsuarios.get(pos).getNombres()+"\n";
                 informacion+="Contraseña: "+listaUsuarios.get(pos).getContraseña()+"\n";
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
                 informacion+="Correo: "+listaUsuarios.get(pos).getCorreo()+"\n";
                 informacion+="Ubicación: "+listaUsuarios.get(pos).getUbicacion()+"\n";
-                Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_LONG).show();*/
 
                 Usuario user=listaUsuarios.get(pos);
 
@@ -61,12 +61,11 @@ public class ConsultarListaPersonas extends AppCompatActivity {
 
                 intent.putExtras(bundle);
                 startActivity(intent);
-
             }
         });
 
     }
-
+    //Lee la base de datos de la tabla USUARIO y los almacena en un arrayList el cual es de tipo Usuario
     public void consultarListaPersonas() {
         SQLiteDatabase db=admin.getReadableDatabase();
 
