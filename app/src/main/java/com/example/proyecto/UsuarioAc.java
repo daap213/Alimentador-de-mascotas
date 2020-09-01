@@ -82,9 +82,6 @@ public class UsuarioAc extends AppCompatActivity {
             case R.id.verMascota:
                 miIntent=new Intent(UsuarioAc.this,ListaMascotas.class);
                 break;
-            case R.id.actualizarDatos:
-                miIntent=new Intent(UsuarioAc.this,ActualizarUsuario.class);
-                break;
             case R.id.eliminarUsuario:
                 eliminarUsuario();
                 break;

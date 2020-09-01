@@ -43,7 +43,7 @@ public class DetalleMascotas extends AppCompatActivity {
         }
 
     }
-
+//esto ver si borro
     private void consultarPersona(Integer idPersona) {
         SQLiteDatabase db=admin.getReadableDatabase();
         String[] parametros={idPersona.toString()};
