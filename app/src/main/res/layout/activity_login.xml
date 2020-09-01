@@ -5,7 +5,20 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo8"
     android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/corto2" />
 
     <EditText
         android:id="@+id/nom"
@@ -16,13 +29,17 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="114dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="100dp"
+        android:background="@drawable/contorno_bnt"
         android:ems="10"
+        android:gravity="center"
         android:hint="@string/nombre_de_usuario"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:labelFor="@id/contr" />
+
+        android:labelFor="@id/contr"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/contr"
@@ -33,26 +50,33 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="99dp"
         android:autofillHints=""
+        android:background="@drawable/contorno_bnt"
         android:ems="10"
+
+        android:gravity="center"
         android:hint="@string/contrase_a"
         android:inputType="textPassword"
-        android:labelFor="@id/nom" />
+        android:labelFor="@id/nom"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/ingresarLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contr"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="124dp"
         android:onClick="Ingresar"
-        android:text="@string/ingresar" />
+        android:text="@string/ingresar"
+        android:background="@drawable/contorno_bnt"
+        android:textSize="18sp" />
+
 
 </RelativeLayout>
