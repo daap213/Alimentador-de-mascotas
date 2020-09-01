@@ -85,6 +85,7 @@
 
                 android:layout_margin="20dp"
                 android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
                 android:text="@string/ver_mis_mascotas" />
 
             <Button

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,7 +27,7 @@ public class ListaMascotas extends AppCompatActivity {
     Spinner spinnerMascota;
     ArrayList<String> listaInformacion;
     ArrayList<Mascota> listaMascotas; //Se almacenan las mascotas de tipo Mascotas
-
+    ListView listViewMascota;
     AdminSQLiteOpenHelper admin;
 
     @Override
@@ -36,82 +37,63 @@ public class ListaMascotas extends AppCompatActivity {
 
         //Inicializacion de instancias
         admin=new AdminSQLiteOpenHelper(getApplicationContext(),"PST_G6",null,1);
-        spinnerMascota= (Spinner)findViewById(R.id.spinnerMascota);
+        listViewMascota= (ListView) findViewById(R.id.listViewMascotas);
+      /* spinnerMascota= (Spinner)findViewById(R.id.spinnerMascota);
         nombreMas= (TextView)findViewById(R.id.nombreMascota);
         edadMas= (TextView)findViewById(R.id.edadMas);
         razaMas= (TextView)findViewById(R.id.razaMas);
-        tamañoMas= (TextView)findViewById(R.id.tamañoMas);
+        tamañoMas= (TextView)findViewById(R.id.tamañoMas);*/
 
         //Se llama al método que consulta la lista d mascotas de la db
-        consultarListaMascotas();
+        consultarListaPersonas();
 
         //Adapatador necesario para el Spinner de Mascota
-        ArrayAdapter<CharSequence> adaptador=new ArrayAdapter
-                (this,android.R.layout.simple_spinner_item,listaMascotas);
+        ArrayAdapter adaptador=new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
+        listViewMascota.setAdapter(adaptador);
 
-        spinnerMascota.setAdapter(adaptador);
-
-        spinnerMascota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        listViewMascota.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long idl) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
 
-                if (position!=0){
-                    nombreMas.setText(listaMascotas.get(position-1).getNombreMascota());
-                    edadMas.setText(listaMascotas.get(position-1).getEdad());
-                    razaMas.setText(listaMascotas.get(position-1).getRaza());
-                    tamañoMas.setText(listaMascotas.get(position-1).getTamaño());
+                Mascota mascota=listaMascotas.get(pos);
 
-                    Mascota mascota=listaMascotas.get(position);
+                Intent intent=new Intent(ListaMascotas.this,DetalleMascotas.class);
 
-                    Intent intent=new Intent(ListaMascotas.this,DetalleMascotas.class);
-                    Bundle bundle=new Bundle();
-                    bundle.putSerializable("mascota",mascota);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("mascota",mascota);
 
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-
-
-                }else{
-                    nombreMas.setText("");
-                    edadMas.setText("");
-                    razaMas.setText("");
-                    tamañoMas.setText("");
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
-
     }
 
-    public void consultarListaMascotas() { //Metodo que consulta toda la base de datos de la TABLA MASCOTA
+    private void consultarListaPersonas() {
         SQLiteDatabase db=admin.getReadableDatabase();
 
-        Mascota mascota=null;
+
         listaMascotas=new ArrayList<Mascota>();
 
+        //select * from usuarios
         Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_MASCOTA,null);
 
         while (cursor.moveToNext()){
-            mascota=new Mascota();
+            Mascota mascota=new Mascota();
             mascota.setIdMascota(cursor.getInt(0));
-            mascota.setIdUsuario(cursor.getInt(1));
-            mascota.setNombreMascota(cursor.getString(2));
-            mascota.setEdad(cursor.getInt(3));
+            mascota.setNombreMascota(cursor.getString(3));
             mascota.setRaza(cursor.getString(4));
-            mascota.setTamaño(cursor.getString(5));
+            mascota.setIdUsuario(cursor.getInt(2));
+
 
             listaMascotas.add(mascota);
         }
         obtenerLista();
     }
 
-    public void obtenerLista() {
+    private void obtenerLista() {
         listaInformacion=new ArrayList<String>();
-        listaInformacion.add("Seleccione una Mascota");
+
         for (int i=0; i<listaMascotas.size();i++){
             listaInformacion.add(listaMascotas.get(i).getIdMascota()+" - "
                     +listaMascotas.get(i).getNombreMascota());

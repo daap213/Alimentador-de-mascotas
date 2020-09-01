@@ -15,9 +15,9 @@
         <activity android:name=".RegistroUsuario"/>
         <activity android:name=".UsuarioAc"/>
         <activity android:name=".HorariodeComida"/>
+        <activity android:name=".ListaMascotas"/>
         <activity android:name=".DetalleMascotas"/>
         <activity android:name=".ConsultarListaPersonas"/>
-        <activity android:name=".ListaMascotas"/>
         <activity android:name=".Login"/>
         <activity android:name=".DetallesdelUsuario"/>
         <activity android:name=".MainActivity">

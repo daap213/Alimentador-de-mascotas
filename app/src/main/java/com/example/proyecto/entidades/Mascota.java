@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class Mascota implements Serializable {
 
-    private Integer idMascota;
-    private Usuario dueño;
-    private Integer idUsuario;
-    private String nombreMascota;
-    private String raza;
-    private Integer edad;
-    private String tamaño;
+    public Integer idMascota;
+    public Usuario dueño;
+    public Integer idUsuario;
+    public String nombreMascota;
+    public String raza;
+    public Integer edad;
+    public String tamaño;
 
     public Mascota() {
     }
@@ -18,6 +18,17 @@ public class Mascota implements Serializable {
     public Mascota(Integer idMascota, Integer idUsuario, String nombreMascota, String raza, Integer edad, String tamaño) {
         this.idUsuario = idUsuario;
         this.idMascota = idMascota;
+        this.nombreMascota = nombreMascota;
+        this.raza = raza;
+        this.edad = edad;
+        this.tamaño = tamaño;
+    }
+
+
+    public Mascota(Integer idMascota, Usuario dueño, Integer idUsuario, String nombreMascota, String raza, Integer edad, String tamaño) {
+        this.idMascota = idMascota;
+        this.dueño = dueño;
+        this.idUsuario = idUsuario;
         this.nombreMascota = nombreMascota;
         this.raza = raza;
         this.edad = edad;
@@ -71,5 +82,7 @@ public class Mascota implements Serializable {
     public void setTamaño(String tamaño) {
         this.tamaño = tamaño;
     }
+
+
 }
 

@@ -50,7 +50,7 @@ public class Utilidades {
             KEY_MASCOTA_NOMBRE + " VARCHAR," +
             KEY_RAZA + " VARCHAR," +
             KEY_MASCOTA_EDAD + " VARCHAR," +
-            KEY_TAMAÑO+ " INTEGER)";
+            KEY_TAMAÑO+ " VARCHAR)";
 
     public static final String CREAR_TABLA_HORARIO="CREATE TABLE " +
             ""+TABLA_HORARIO+" ("+KEY_HORARIO_ID + " "+

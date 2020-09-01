@@ -27,11 +27,15 @@ public class Login extends AppCompatActivity {
 
         nombreUsuario=(EditText)findViewById(R.id.nom);
         contraseña=(EditText)findViewById(R.id.contr);
+
+
     }
 
     public void Ingresar(View v) {
         consultarUsuario();
-    }
+
+        }
+
 
     //Método que Valida el login
     private void consultarUsuario() {

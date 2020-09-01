@@ -22,7 +22,7 @@ public class DetalleMascotas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_mascota);
 
-        admin=new AdminSQLiteOpenHelper(getApplicationContext(),"bd_usuarios",null,1);
+        admin=new AdminSQLiteOpenHelper(getApplicationContext(),"PST_G6",null,1);
 
         campoIdPersona = (TextView) findViewById(R.id.campoIdPersona);
         campoNombrePersona = (TextView) findViewById(R.id.campoNombrePersona);
@@ -39,7 +39,9 @@ public class DetalleMascotas extends AppCompatActivity {
             campoIdMascota.setText(mascota.getIdMascota().toString());
             campoNombreMascota.setText(mascota.getNombreMascota());
             campoRaza.setText(mascota.getRaza());
+            campotamaño.setText((mascota.getTamaño()));
             consultarPersona(mascota.getIdUsuario());
+
         }
 
     }
