@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-
+//Se activa si recibe un evento de reinicio y llama a un servicio  que configura la alarma guarda
 public class MyRebootReceiver extends BroadcastReceiver {
 
     @Override
