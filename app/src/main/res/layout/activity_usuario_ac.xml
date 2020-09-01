@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo9">
 
     <TextView
         android:id="@+id/mensajeBienvenida"
@@ -12,129 +13,124 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/bienvenida"
-        android:textSize="24sp"
+        android:textColor="?android:attr/colorActivatedHighlight"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Presione para alimentar:"
+        android:textColor="?android:attr/colorActivatedHighlight"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mensajeBienvenida">
+        app:layout_constraintTop_toBottomOf="@+id/mensajeBienvenida" />
 
-        <TableLayout
-            android:id="@+id/tabla"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-
-            <TableRow
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <Button
-                    android:id="@+id/comida"
-                    android:layout_width="182dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/efectobtn"
-                    android:onClick="onClick" />
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/agua"
-                    android:layout_width="173dp"
+                    android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/efectobtn_ag"
-                    android:onClick="onClick" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                    android:background="@drawable/efectobtn_ag" />
 
                 <Button
-                    android:id="@+id/horario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/horario_de_comida" />
-            </TableRow>
+                    android:id="@+id/comida"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/efectobtn"
+                    android:scrollHorizontally="false" />
+            </LinearLayout>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+            <Button
+                android:id="@+id/horario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
+                android:text="@string/horario_de_comida" />
 
-                <Button
-                    android:id="@+id/verMascota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/ver_mis_mascotas" />
-            </TableRow>
+            <Button
+                android:id="@+id/verMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:text="@string/ver_mis_mascotas" />
 
-                <Button
-                    android:id="@+id/registroMascota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/registrar_mascota" />
-            </TableRow>
+            <Button
+                android:id="@+id/registroMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
+                android:text="@string/registrar_mascota" />
 
-                <Button
-                    android:id="@+id/actualizarDatos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/actualizar_datos" />
+            <Button
+                android:id="@+id/actualizarDatos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
-            </TableRow>
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
+                android:text="@string/actualizar_datos" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+            <Button
+                android:id="@+id/eliminarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
-                <Button
-                    android:id="@+id/eliminarUsuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/eliminar_usuario" />
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
+                android:text="@string/eliminar_usuario" />
 
-            </TableRow>
+            <Button
+                android:id="@+id/cerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <Button
-                    android:id="@+id/cerrarSesion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onClick"
-                    android:text="@string/cerrar_sesi_n" />
-            </TableRow>
-        </TableLayout>
+                android:layout_margin="20dp"
+                android:background="@drawable/contorno_btn2"
+                android:onClick="onClick"
+                android:text="@string/cerrar_sesi_n" />
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
