@@ -6,7 +6,7 @@ Proyecto de alimentador de mascotas automático controlado por una aplicación m
 _Links_
 
 ### Observación App del módulo embebido:
-[Prueba de funcionamiento conceptual](https://youtu.be/JgPdPBcRTjw) 
+[Prueba de funcionamiento conceptual](https://youtu.be/JgPdPBcRTjw) --
 [Prueba de funcionamiento de App](https://youtu.be/xK9o9PrH0lI)
 
 ## Autores ✒
