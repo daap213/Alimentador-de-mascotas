@@ -11,5 +11,8 @@ Proyecto de alimentador de mascotas automático controlado por una aplicación m
 
 ## Autores ✒
 
-* **Daniel Andrés Alvarado Peláeza** 
+* **DANIEL ALVARADO PELAEZ** 
+* **ROBERTO TORRES CEDEÑO** 
+* **BRYAN CALI LOAIZA** 
+* **TAMARA GARCIA ROMOA** 
 
